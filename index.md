@@ -6,7 +6,7 @@ According to Gartner, “*Cloud-native application protection platforms (CNAPPs)
 
 As someone who has done multiple CNAPP implementations, I've summarized below my key considerations to help maximize the benefits of CNAPP:
 
-1. [Tool Selection:](\#tool-selection:)  
+1. [Tool Selection:](\#tool-selection)  
    1. [Graph Databases Are Table Stakes](\#graph-databases-are-table-stakes)  
    2. [Select Best-of-Suite](\#select-best-of-suite)  
 2. [Day 1 Focus Areas:](\#day-1-focus-areas:)  
@@ -16,7 +16,7 @@ As someone who has done multiple CNAPP implementations, I've summarized below my
    1. [Customize & Fine-Tune Policies](\#customize-&-fine-tune-policies)  
    2. [Implement Additional CNAPP Capabilities](\#implement-additional-cnapp-capabilities)
 
-# Tool Selection: {#tool-selection:}
+# Tool Selection
 
 ## Graph Databases are Table Stakes  {#graph-databases-are-table-stakes}
 
