@@ -2,23 +2,23 @@
 
 According to Gartner, “*Cloud-native application protection platforms (CNAPPs) are a unified and tightly integrated set of security and compliance capabilities, designed to protect cloud-native infrastructure and applications. CNAPPs incorporate an integrated set of proactive and reactive security capabilities, including artifact scanning, security guardrails, configuration and compliance management, risk detection and prioritization, and behavioral analytics, providing visibility, governance and control from code creation to production runtime. CNAPP solutions use a combination of API integrations with leading cloud platform providers, continuous integration/continuous development (CI/CD) pipeline integrations, and agent and agentless workload integration to offer combined development and runtime security coverage.*”
 
-![CNAPP Capabilities - Gartner](https://github.com/user-attachments/assets/6716e5d6-5079-4b12-88e3-a93a12618188)
+![CNAPP Capabilities - Gartner](images/CNAPP%20Capabilities%20-%20Gartner.png)
 
 As someone who has done multiple CNAPP implementations, I've summarized below my key considerations to help maximize the benefits of CNAPP:
 
-1. Tool Selection:  
-   1. Graph Databases Are Table Stakes  
-   2. Select Best-of-Suite  
-2. Day 1 Focus Areas:  
-   1. Operationalize Cloud Security Posture Management (CSPM)   
-   2. Enable Self-Service Consumption of Findings  
-3. Day 2 Focus Areas:  
-   1. Customize & Fine-Tune Policies  
-   2. Implement Additional CNAPP Capabilities
+1. [Tool Selection:](\#tool-selection:)  
+   1. [Graph Databases Are Table Stakes](\#graph-databases-are-table-stakes)  
+   2. [Select Best-of-Suite](\#select-best-of-suite)  
+2. [Day 1 Focus Areas:](\#day-1-focus-areas:)  
+   1. [Operationalize Cloud Security Posture Management (CSPM)](\#operationalize-cloud-security-posture-management-(cspm))   
+   2. [Enable Self-Service Consumption of Findings](\#enable-self-service-consumption-of-findings)  
+3. [Day 2 Focus Areas:](\#day-2-focus-areas:)  
+   1. [Customize & Fine-Tune Policies](\#customize-&-fine-tune-policies)  
+   2. [Implement Additional CNAPP Capabilities](\#implement-additional-cnapp-capabilities)
 
-# Tool Selection:
+# Tool Selection: {#tool-selection:}
 
-## Graph Databases are Table Stakes 
+## Graph Databases are Table Stakes  {#graph-databases-are-table-stakes}
 
 The days of relying on simplistic, list-based asset inventories are long gone. Modern cloud environments are incredibly dynamic and interconnected, with complex relationships between resources, identities, configurations, and data flows. Traditional relational databases simply can't keep up with modeling and analyzing these intricate webs of connections. This is where graph databases shine. Below are key considerations when selecting a CNAPP platform with graph databases:
 
@@ -28,7 +28,7 @@ The days of relying on simplistic, list-based asset inventories are long gone. M
 
 In conclusion, while there are certainly other important factors to consider when choosing a CNAPP, I firmly believe that graph database technology should be at the top of the list. It is no longer a nice-to-have feature, but an essential foundation for truly understanding and securing complex cloud-native environments.
 
-## Select Best-of-Suite
+## Select Best-of-Suite {#select-best-of-suite}
 
 When choosing a CNAPP solution, I strongly advocate for a "best-of-suite" approach rather than assembling multiple "best-of-breed" tools. Below are key considerations when selecting CNAPP platforms:
 
@@ -44,9 +44,9 @@ However, it is important to recognize that no single vendor excels in all areas 
 
 By selecting a best-of-suite CNAPP solution, organizations can benefit from operational efficiencies, spend less time upskilling on multiple tools, and ultimately enhance their ability to manage risks in dynamic cloud-native environments. This approach provides a more cohesive and effective security posture, crucial for navigating the complexities of modern cloud security.
 
-# Day 1 Focus Areas:
+# Day 1 Focus Areas: {#day-1-focus-areas:}
 
-## Operationalize Cloud Security Posture Management (CSPM)
+## Operationalize Cloud Security Posture Management (CSPM) {#operationalize-cloud-security-posture-management-(cspm)}
 
 As CNAPP definitions evolve, new capabilities (read: acronyms) are added, and vendors market their platforms as the silver bullet for addressing all cloud security needs, it is tempting to activate every available feature. However, this approach can overwhelm security teams with alerts and frustrate developers with a sudden influx of issues, creating friction between teams meant to collaborate on reducing security risks. To avoid these pitfalls, I strongly recommend prioritizing Cloud Security Posture Management (CSPM) on day one of your CNAPP implementation journey. Below are key considerations for operationalizing CSPM:
 
@@ -59,7 +59,7 @@ As CNAPP definitions evolve, new capabilities (read: acronyms) are added, and ve
 
 Prioritizing CSPM as your initial focus establishes a robust foundation that not only addresses critical security risks but also allows the organization to build confidence in its processes, workflows, and ability to remediate issues. This also provides the foundation for the  implementation of more advanced CNAPP capabilities in a manageable manner with minimal resistance / disruptions.
 
-## Enable Self-Service Consumption of Findings
+## Enable Self-Service Consumption of Findings {#enable-self-service-consumption-of-findings}
 
 Another critical day-one consideration is setting up role-based access control (RBAC) to enable self-service consumption of security findings for the developer community. This approach is crucial for conducting timely remediation and fostering a culture of shared responsibility within the organization. Below are key considerations for self-service consumption of findings:
 
@@ -77,9 +77,9 @@ By harmonizing these policies, you create a seamless security experience from de
 
 Moreover, aligned policies help shift security left more effectively. Issues caught in IaC scans can be addressed before they ever make it to production, reducing your overall risk exposure and the cost of remediation.
 
-# Day 2 Focus Areas:
+# Day 2 Focus Areas: {#day-2-focus-areas:}
 
-## Customize & Fine-Tune Policies
+## Customize & Fine-Tune Policies {#customize-&-fine-tune-policies}
 
 As your organization becomes familiar with the initial roll-out, it is crucial to move beyond out-of-the-box (OOB) policies towards custom policy development and fine-tuning (“customization”) to better align to organization’s security standards and reduce false positives. Below are key considerations for customizing policies:
 
@@ -90,7 +90,7 @@ As your organization becomes familiar with the initial roll-out, it is crucial t
 
 By focusing on policy customization and alignment, your can begin monitoring and enforcing security requirements that are aligned to your organizations’ standards and cloud development practices.This approach fosters a culture of proactive risk management.
 
-## Implement Additional CNAPP Capabilities
+## Implement Additional CNAPP Capabilities {#implement-additional-cnapp-capabilities}
 
 Once your organization has established an operational rhythm with reviewing and addressing findings, and the team has become familiar with the CNAPP tool, the foundation is set to implement additional CNAPP capabilities (e.g., Cloud Infrastructure Entitlement Management (CIEM), Data Security Posture Management (DSPM), Cloud Workload Protection Platform (CWPP), AI Posture Management (AIPM)). Below are key considerations when implementing these additional capabilities:
 
@@ -112,3 +112,4 @@ PS: CNAPP is a broad area with many layers to unpack and there are several topic
 References:
 
 1. Gartner \- [https://www.gartner.com/doc/reprints?id=1-2I6V52K2\&ct=240726\&st=sb](https://www.gartner.com/doc/reprints?id=1-2I6V52K2\&ct=240726\&st=sb)
+
