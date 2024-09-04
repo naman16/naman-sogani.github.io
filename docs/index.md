@@ -12,11 +12,11 @@ According to Gartner, “*Cloud-native application protection platforms (CNAPPs)
 
 In other words, CNAPP is an umbrella term for multiple security capabilities that are integrated into a unified platform to secure cloud-native applications and infrastructure throughout their lifecycle. A typical CNAPP includes the following core capabilities:
 
-*** Cloud Security Posture Management (CSPM):** Identifies misconfigurations and compliance risks in cloud infrastructure.  
-*** Cloud Infrastructure Entitlement Management (CIEM):** Manages and automates access permissions in cloud environments.  
-*** Cloud Workload Protection Platform (CWPP):** Protects cloud workloads, including containers, servers, and serverless functions.  
-*** Infrastructure-as-Code (IaC) scanning:** Detects security issues early in the development process.  
-*** Data Security Posture Management (DSPM):** Discovers sensitive data sources and who has access to them. 
+* **Cloud Security Posture Management (CSPM):** Identifies misconfigurations and compliance risks in cloud infrastructure.  
+* **Cloud Infrastructure Entitlement Management (CIEM):** Manages and automates access permissions in cloud environments.  
+* **Cloud Workload Protection Platform (CWPP):** Protects cloud workloads, including containers, servers, and serverless functions.  
+* **Infrastructure-as-Code (IaC) Scanning:** Detects security issues early in the development process.  
+* **Data Security Posture Management (DSPM):** Discovers sensitive data sources and who has access to them.
 
 Below is an image from Gartner that provides a detailed view of the CNAPP capabilities landscape:
 
