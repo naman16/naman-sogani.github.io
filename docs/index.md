@@ -5,6 +5,7 @@ As someone who has done multiple Cloud-Native Application Protection Platform (C
 1. [What is CNAPP?](\#what-is-cnapp?)  
 2. [Tool Selection Criteria](\#tool-selection-criteria)  
 3. [Day 1 Focus Areas](\#day-1-focus-areas)
+4. [Closing Thoughts](\#closing-thoughts)
 
 # What is CNAPP?
 
@@ -59,6 +60,8 @@ As CNAPP definitions evolve, new capabilities (read: acronyms) are added, and ve
      - *Align with Security Standards:* OOB policies may not adequately address your organization's unique risk profile or compliance requirements and may not be aligned with your security standards and controls. By developing custom policies based on security standards, cloud usage patterns and application architectures, you can have higher confidence in your policy set and improved accuracy in the legitimacy of the issues identified. Additionally, since these policies are contextualized for your organization’s cloud environments, they reduce friction and improve adoption among your development teams.
 
 Prioritizing CSPM as your initial focus establishes a robust foundation that not only addresses critical security risks but also allows the organization to build confidence in its processes, workflows, and ability to remediate issues. This provides the foundation for the implementation of more advanced CNAPP capabilities in a manageable manner with minimal resistance / disruptions.
+
+# Closing Thoughts
 
 In summary, the tool in itself is very powerful and provides good visibility but the successful implementation and ROI are dependent on people and process elements where activities like fostering a shared responsibility culture, partnering with and enabling developers, phasing the roll-out of the platform, and designing effective processes are critical factors for success. 
 
