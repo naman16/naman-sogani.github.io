@@ -26,6 +26,11 @@ Below is an image from Gartner that provides a detailed view of the CNAPP capabi
 
 When choosing a CNAPP solution, even though no vendor excels in all areas of CNAPP, I strongly advocate for a "best-of-suite" approach rather than assembling multiple "best-of-breed" tools. It is operationally easier to roll out across the organization, reduces the complexity associated with maintaining and managing various tools, and provides unified visibility across the different types of findings as it eliminates the need to correlate data from disparate tools. When evaluating CNAPP solutions, consider the following:
 
+- **Prioritize CSPM Offering:** Focus on vendors with strong capabilities in the areas most critical to your organization's needs and cloud security strategy.
+  - Prioritize vendors that have strong CSPM, vulnerability scanning, and CIEM capabilities, even if the rest of their features may not be as robust.
+  - Ensure that if not already supported, vendors have it in their short-term plan to provide support for the remaining CNAPP capabilities (CWPP, DSPM, attack surface management, software supply chain, policy-as-code (PaC), container image scanning, etc.).
+
+
 * **Prioritize CSPM Offering:** Focus on vendors with strong capabilities in the areas most critical to your organization's needs and cloud security strategy.  
   * Prioritize vendors that have strong CSPM, vulnerability scanning, and CIEM capabilities, even if the rest of their features may not be as robust.  
   * Ensure that if not already supported, vendors have it in their short-term plan to provide support for the remaining CNAPP capabilities (CWPP, DSPM, attack surface management, software supply chain, policy-as-code (PaC), container image scanning, etc.).  
