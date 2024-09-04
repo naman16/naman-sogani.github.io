@@ -37,7 +37,7 @@ When choosing a CNAPP solution, even though no vendor excels in all areas of CNA
 * **Prioritize Comprehensive APIs:** Prefer vendors with well-designed and flexible APIs that do not limit you to carrying out actions only via their console. Robust APIs will enable you to automate processes and workflows, integrate with enterprise tools (such as ticketing and messaging systems, vulnerability repositories, and SIEMs), and efficiently handle reporting and remediation tasks.
 * **Alignment With Vendor Roadmaps:** Assess the vendor's roadmap to ensure it aligns with your future requirements and strategic goals. For example, if your organization is making a big push for AI workloads in the near-future, consider vendors that have AI Posture Management (AIPM) capabilities in their short-term roadmap. 
 
-By selecting a best-of-suite CNAPP solution that has CSPM as its core capability and also has the required flexibility / extensibility as a platform, organizations can benefit from operational efficiencies, spend less time upskilling on multiple tools, and ultimately enhance their ability to manage risks in dynamic cloud-native environments.
+By selecting a best-of-suite CNAPP solution that has CSPM, vulnerability scanning, and CIEM as its core capability and also has the required flexibility / extensibility as a platform, organizations can benefit from operational efficiencies, spend less time upskilling on multiple tools, and ultimately enhance their ability to manage risks in dynamic cloud-native environments.
 
 # Day 1 Focus Areas
 
