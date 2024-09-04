@@ -1,5 +1,4 @@
 site_name: Cloud Security Blogs
-site_url: https://naman-sogani.github.io/
 theme:
   name: material
   features:
