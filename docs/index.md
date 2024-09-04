@@ -73,4 +73,4 @@ PS: CNAPP is a broad area with many layers to unpack and there are several topic
 
 References:
 
-1. Gartner \- [https://www.gartner.com/doc/reprints?id=1-2I6V52K2\&ct=240726\&st=s](https://www.gartner.com/doc/reprints?id=1-2I6V52K2\&ct=240726\&st=sb)b
+1. Gartner \- [https://www.gartner.com/doc/reprints?id=1-2I6V52K2&ct=240726&st=sb](https://www.gartner.com/doc/reprints?id=1-2I6V52K2&ct=240726&st=sb)
