@@ -6,7 +6,7 @@ As someone who has done multiple Cloud-Native Application Protection Platform (C
 2. [Tool Selection Criteria](\#tool-selection-criteria)  
 3. [Day 1 Focus Areas](\#day-1-focus-areas)
 
-# What is CNAPP? {#what-is-cnapp?}
+# What is CNAPP?
 
 According to Gartner, “*Cloud-native application protection platforms (CNAPPs) are a unified and tightly integrated set of security and compliance capabilities, designed to protect cloud-native infrastructure and applications. CNAPPs incorporate an integrated set of proactive and reactive security capabilities, including artifact scanning, security guardrails, configuration and compliance management, risk detection and prioritization, and behavioral analytics, providing visibility, governance and control from code creation to production runtime. CNAPP solutions use a combination of API integrations with leading cloud platform providers, continuous integration/continuous development (CI/CD) pipeline integrations, and agent and agentless workload integration to offer combined development and runtime security coverage.*” 
 
@@ -22,7 +22,7 @@ Below is an image from Gartner that provides a detailed view of the CNAPP capabi
 
 ![CNAPP Capabilities - Gartner](images/CNAPP%20Capabilities%20-%20Gartner.png)
 
-# Tool Selection Criteria {#tool-selection-criteria}
+# Tool Selection Criteria
 
 When choosing a CNAPP solution, even though no vendor excels in all areas of CNAPP, I strongly advocate for a "best-of-suite" approach rather than assembling multiple "best-of-breed" tools. It is operationally easier to roll out across the organization, reduces the complexity associated with maintaining and managing various tools, and provides unified visibility across the different types of findings as it eliminates the need to correlate data from disparate tools. When evaluating CNAPP solutions, consider the following:
 
@@ -41,7 +41,7 @@ When choosing a CNAPP solution, even though no vendor excels in all areas of CNA
 
 By selecting a best-of-suite CNAPP solution that has CSPM as its core capability and also has the required flexibility / extensibility as a platform, organizations can benefit from operational efficiencies, spend less time upskilling on multiple tools, and ultimately enhance their ability to manage risks in dynamic cloud-native environments.
 
-# Day 1 Focus Areas {#day-1-focus-areas}
+# Day 1 Focus Areas
 
 As CNAPP definitions evolve, new capabilities (read: acronyms) are added, and vendors market their platforms as the silver bullet for addressing all cloud security needs, it is tempting to enable every available feature. However, this approach can overwhelm security teams with alerts and frustrate developers with a sudden influx of issues that need to be remediated, creating friction between teams meant to collaborate on reducing security risks. To avoid these pitfalls, consider the following:
 
