@@ -20,7 +20,7 @@ In other words, CNAPP is an umbrella term for multiple security capabilities tha
 
 Below is an image from Gartner that provides a detailed view of the CNAPP capabilities landscape:
 
-![CNAPP Capabilities - Gartner](../images/CNAPP%20Capabilities%20-%20Gartner.png)
+![CNAPP Capabilities - Gartner](images/CNAPP%20Capabilities%20-%20Gartner.png)
 
 # Tool Selection Criteria
 
