@@ -114,5 +114,7 @@ While the exact workflows or integrations will vary for every organization depen
 - seek constant feedback from the teams and improve the processes and integrations accordingly
 
 Below is a visual that provides a high-level walkthrough for classifying different types of issues, identifying the responsible stakeholders, and setting up integrations to communicate these issues:  
-![CNAPP Workflows & Integrations](images/CNAPP%Workflows%20&%Integrations.png)
+![CNAPP Workflows & Integrations](images/CNAPP%20Workflows%20&%20Integrations.png)
+
+![CNAPP Capabilities - Gartner](images/CNAPP%20Capabilities%20-%20Gartner.png)
 
