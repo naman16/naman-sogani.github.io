@@ -10,14 +10,11 @@ In the first part of the Cloud-Native Application Protection Platform (CNAPP) bl
 
 “Pre-deployment” security in the context of CNAPP refers to all the different capabilities that are implemented within CI / CD pipelines and/or as part of the development lifecycle such that they can identify and/or block insecure resources from reaching the cloud environments. Often, I see this definition to be only for “production” cloud environments, however, I think it is more effective to think about it as “before reaching cloud environments”. This allows you to shift-left and roll-out capabilities in a standardized manner v/s managing variations of processes for different environments. You can then utilize policy thresholds to enforce stricter requirements in production v/s development environments. Below are the primary pre-deployment capabilities:  
 In the context of CNAPP, "pre-deployment" security encompasses a range of capabilities integrated into CI/CD pipelines and the overall development lifecycle to identify and block insecure resources before they enter cloud environments. Often, I have noticed that this term is narrowly defined to apply only to production environments. However, in my experience, a broader interpretation of this term \- viewing it as applicable to all stages before cloud deployment i.e. “before reaching cloud environments” \- is more effective. This allows you to shift-left and roll-out capabilities in a standardized manner rather than managing disparate processes across different environments. Additionally, implement policy thresholds that enforce stricter security requirements in production compared to development environments. Below are the primary pre-deployment capabilities:
-
 * **Infrastructure-as-Code (IaC) & Secret Scanning:** This involves scanning resource deployment files \- such as Terraform, CloudFormation, ARM templates, Ansible playbooks, Kubernetes manifests, Helm charts, and Dockerfiles \- to identify misconfigurations and exposed secrets. Here are some key considerations for implementing IaC and secret scanning:  
   - _*Scaling Across CI / CD Pipelines:*_ In a decentralized model where teams have autonomy over their development processes, the proliferation of diverse pipelines creates a complex landscape for security integration. This is because:  
     * Teams often utilize various CI/CD tools \- such as Jenkins, GitHub Actions, Azure DevOps, etc. \- each with distinct configurations and execution environments. Additionally, in large enterprises, the sheer volume of pipelines, often numbering in the hundreds or thousands, significantly increases the number of points that require security integration. This diversity complicates the enforcement of consistent scanning practices, as each pipeline may necessitate a customized approach to effectively implement IaC and secret scanning.  
     * Moreover, the decentralized nature of pipeline management means that security teams often lack visibility into all existing pipelines, making it challenging to ensure comprehensive coverage. The variety in pipeline configurations also complicates the task of standardizing scanning tools and processes, as what works for one pipeline might not be compatible with another.
-
     To address these challenges, consider the following:
-
     * _*Standardize CI / CD Toolchain:*_ Collaborate with your peers in the engineering teams and build a business case for standardizing on a subset of CI / CD technologies and seek executive buy-ins. Focus on non-security benefits to gain traction and drive the message home. For example, “*Implementing a unified set of tools across teams, improves collaboration and knowledge sharing, as all members work with the same processes and technologies. This standardization also leads to faster onboarding of new team members and easier skill transfer between projects, as there's only one set of tools to learn. Furthermore, a standardized toolchain reduces complexity and operational friction, simplifying maintenance and support while potentially leading to cost savings through consolidated licensing and training.*”  
     * _*Maintain Security Integration Toolkit:*_ Develop and maintain a central repository of integration scripts and configurations for the approved CI/CD pipeline technologies, making it easier to implement security scanning consistently. Include clear guidelines and documentation to facilitate increased adoption by engineering teams. Ensure the repository is regularly updated to incorporate new CI/CD technologies or vendor updates.  
   - _*Preventing Bypass of Scanning Workflows:*_ In many organizations that have a decentralized operating model for cloud, application and DevOps teams often persist admin privileges over their respective pipelines. This can pose challenges for enforcing scanning, as these teams can disable or bypass scanning steps. Therefore, when implementing scanning across the organization, it is crucial to design processes and solutions that minimize or restrict bypasses, ideally requiring security approval for any exceptions. Below are key considerations for this:  
@@ -31,9 +28,7 @@ In the context of CNAPP, "pre-deployment" security encompasses a range of capabi
     * Dev & Test Environments —\> No critical issues  
     * Stg / Pre-Prod Environments —\> No critical and high issues  
     * Prod Environments —\> No critical, high, and medium issues
-
     There’s potential for further granularity here based on factors such as workload type, business criticality, data sensitivity, and regulatory requirements. Another example I have seen for organizations running regulated workloads:
-
     * Non-Regulated Workloads:  
       * Dev & Test Environments —\> No critical issues  
       * Stg / Pre-Prod Environments —\> No critical and high issues  
@@ -41,39 +36,30 @@ In the context of CNAPP, "pre-deployment" security encompasses a range of capabi
     * Regulated Workloads:  
       * Dev & Test Environments —\> No critical and high issues  
       * Stg / Pre-Prod Environments —\> No critical, high, and medium issues  
-      * Prod Environments —\> No critical, high, and medium issues
-  
+      * Prod Environments —\> No critical, high, and medium issues  
 * **Container Image Scanning:** This includes scanning your container images during build to identify misconfigurations, vulnerabilities, and exposed secrets. The key considerations for image scanning are similar to the ones listed above for IaC & secret scanning. 
 
 # Capabilities Beyond CSPM
 
 As a recap from the previous blog, I expanded the definition of CSPM to include core CSPM because they are relatively straightforward to implement, deliver quick value, and have a similar path to operationalization. In this section, I will focus on the additional capabilities of CNAPP that build upon the insights and lessons learned \- such as high-risk areas, cloud environment setup, landing zone design, naming conventions, tagging standards, etc. \- from operationalizing CSPM. Below are some of the core CNAPP capabilities that extend beyond CSPM:
-
 * **Registry Scanning:** This includes scanning your container registries to detect vulnerabilities and malware on images. This enables you to have visibility into images that:  
   - Have been pushed to the registries outside of the standard CI / CD pipelines  
   - Have been running in the environment for a long period and have become vulnerable after the initial scan during the build phase 
-
   If your organization uses cloud-native registries (e.g., Amazon Elastic Container Registry (ECR), Azure Container Registry (ACR)), CNAPP tools typically scan them without requiring additional configuration, as this feature is usually enabled by default during the initial setup. However, if you are utilizing a third-party registry (e.g., JFrog Artifactory), further configurations may be necessary for scanning. Below are key considerations for registry scanning:
-
   - *Managing Volume of Issues:* The number of issues identified can be quite substantial, as registries can become chaotic for several reasons:  
     * Teams may push numerous images and packages while only utilizing a small fraction of those for their workloads.  
     * The lack of a well-defined registry structure can make it difficult to track ownership and accountability.  
     * Registry access can be left widely open (i.e. no RBAC), allowing anyone to push to any location within the registry.
-
     Given these challenges, it is essential to invest efforts in correlating issues with actual running containers and workloads and prioritizing them for remediation, rather than requiring remediation for all identified issues.
-
 - *Assigning Remediation Ownership*: The approach to assigning remediation ownership can vary significantly depending on your organization’s operating model, due to the layered nature of containers.   
   * If your organization has a central team (e.g., cloud engineering) responsible for maintaining golden base images (the base layer) that application and DevOps teams build upon with their specific layers, then it is essential to trace the issue back to the vulnerable layer and assign remediation ownership accordingly.  
     * If the issue lies within the base layer, the effort required for remediation across the entire environment increases significantly for the following reasons:  
       1. The central team must update or create a new golden base image that includes the fix.
       2. The consuming teams (i.e., application and DevOps teams) will need to redeploy their applications and workloads using this updated base layer.
-
-         Doing this regularly requires organizations to have mature DevOps processes where teams understand the importance and need to constantly rehydrate their images. Furthermore, there should be good testing and dependency management programs in place to ensure that applications are thoroughly tested before these updates are released to production and that base image modifications do not cause any disruptions.
-
+    Doing this regularly requires organizations to have mature DevOps processes where teams understand the importance and need to constantly rehydrate their images. Furthermore, there should be good testing and dependency management programs in place to ensure that applications are thoroughly tested before these updates are released to production and that base image modifications do not cause any disruptions.
     * If the issue is associated with the application layer, then the responsibility lies with the respective application / DevOps teams to remediate and redeploy their application / workload images. The operations around this are relatively easier because the burden lies exclusively with the application / DevOps teams and there are no dependencies on an enterprise team.     
   * If your organization’s setup is one where the concept of golden images does not exist and the application / DevOps teams own the entire lifecycle of the container images, then the ownership assignment and operations are similar to the previous point about managing issues at the application layer.  
-
-* **Cloud Infrastructure Entitlement Management (CIEM), Data Security Posture Management (DSPM) & Attack Surface Management:** Although these are all broad and disparate categories, I have grouped them under one section because the approach to operationalizing each of these capabilities is similar. Once you are able to operationalize one capability, the strategy and process for the rest of the areas will be comparable. Below are the key considerations for these capabilities:  
+* **Cloud Infrastructure Entitlement Management (CIEM), Data Security Posture Management (DSPM) & Attack Surface Management:** Although these are all broad and disparate categories, I have grouped them under one section because the approach to operationalizing each of these capabilities is similar. Once you can operationalize one capability, the strategy and process for the rest of the areas will be comparable. Below are the key considerations for these capabilities:  
   - *Current-State Understanding*: If a comprehensive discovery exercise regarding current processes, environment setup, landing zone design, and other factors has not yet been conducted as part of operationalizing CSPM, it should be prioritized as the first step in expanding into these CNAPP areas. Key questions to address during this discovery include:  
     * What is the tagging standard in place, and how well is it adopted? Does the standard include details such as resource owner, application owner, and data classification?  
     * What is the naming convention for resources, and is it applied consistently? For example, Is there a clear method for distinguishing between cloud admin resources, developer resources, and security resources?  
@@ -107,14 +93,11 @@ As a recap from the previous blog, I expanded the definition of CSPM to include 
 # Operational Workflows & Technology Integrations
 
 Operational workflows and technology integrations are important in ensuring that the insights generated by CNAPP tools are actioned efficiently and timely, thereby bridging the gap between identifying security issues and practical risk mitigation. This involves aspects such as:
-
 - Classifying issues and routing them to the appropriate remediation owners  
 - Setting up integrations with existing tools and workflows  
 - Providing remediation support  
 - Reporting on SLA compliance and overall security posture
-
 While the specific workflows and integrations will differ for each organization based on factors such as size, existing toolchain, cloud and DevOps maturity, release and change management processes, etc., my experience working with various organizations around the operationalization of CNAPP issues has revealed the below key principles:
-
 - Focus on developing solutions that are “good enough” and work for your organization rather than overengineering to build the perfect workflows and integrations.   
 - Foster a partnership with application and development teams by meeting them halfway in how they prefer to receive issue communications (e.g., email, Teams, Jira, Slack). Avoid imposing your ideal scenario on them. This doesn’t mean accommodating every tool; rather, concentrate on the tools your organization predominantly uses and allow teams to choose their preferences from that list.  
 - Continuously seek feedback from the teams to enhance processes and integrations accordingly.
