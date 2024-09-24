@@ -27,7 +27,7 @@ To address these challenges, consider the following:
   - _*Set Different Policies for Different Environments:*_ Blanket security requirements (e.g., all critical, high, and medium issues must be remediated) can cause friction when enforced in lower environments as this inhibits developer productivity and increases the remediation burden for them. As such, it is advisable to have policies that have environmental context baked into them. For example, I have seen the successful adoption of policies along the lines of:  
     * Dev & Test Environments —\> No critical issues  
     * Stg / Pre-Prod Environments —\> No critical and high issues  
-    * Prod Environments —\> No critical, high, and medium issues
+    * Prod Environments —\> No critical, high, and medium issues \
     There’s potential for further granularity here based on factors such as workload type, business criticality, data sensitivity, and regulatory requirements. Another example I have seen for organizations running regulated workloads:
     * Non-Regulated Workloads:  
       * Dev & Test Environments —\> No critical issues  
