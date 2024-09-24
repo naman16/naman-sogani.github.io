@@ -41,7 +41,8 @@ In the context of CNAPP, "pre-deployment" security encompasses a range of capabi
     * Regulated Workloads:  
       * Dev & Test Environments —\> No critical and high issues  
       * Stg / Pre-Prod Environments —\> No critical, high, and medium issues  
-      * Prod Environments —\> No critical, high, and medium issues  
+      * Prod Environments —\> No critical, high, and medium issues
+  
 * **Container Image Scanning:** This includes scanning your container images during build to identify misconfigurations, vulnerabilities, and exposed secrets. The key considerations for image scanning are similar to the ones listed above for IaC & secret scanning. 
 
 # Capabilities Beyond CSPM
@@ -70,7 +71,8 @@ As a recap from the previous blog, I expanded the definition of CSPM to include 
          Doing this regularly requires organizations to have mature DevOps processes where teams understand the importance and need to constantly rehydrate their images. Furthermore, there should be good testing and dependency management programs in place to ensure that applications are thoroughly tested before these updates are released to production and that base image modifications do not cause any disruptions.
 
       * If the issue is associated with the application layer, then the responsibility lies with the respective application / DevOps teams to remediate and redeploy their application / workload images. The operations around this are relatively easier because the burden lies exclusively with the application / DevOps teams and there are no dependencies on an enterprise team.   
-    * If your organization’s setup is one where the concept of golden images does not exist and the application / DevOps teams own the entire lifecycle of the container images, then the ownership assignment and operations are similar to the previous point about managing issues at the application layer.  
+    * If your organization’s setup is one where the concept of golden images does not exist and the application / DevOps teams own the entire lifecycle of the container images, then the ownership assignment and operations are similar to the previous point about managing issues at the application layer.
+  
 * **Cloud Infrastructure Entitlement Management (CIEM), Data Security Posture Management (DSPM) & Attack Surface Management:** Although these are all broad and disparate categories, I have grouped them under one section because the approach to operationalizing each of these capabilities is similar. Once you are able to operationalize one capability, the strategy and process for the rest of the areas will be comparable. Below are the key considerations for these capabilities:  
   - *Current-State Understanding*: If a comprehensive discovery exercise regarding current processes, environment setup, landing zone design, and other factors has not yet been conducted as part of operationalizing CSPM, it should be prioritized as the first step in expanding into these CNAPP areas. Key questions to address during this discovery include:  
     * What is the tagging standard in place, and how well is it adopted? Does the standard include details such as resource owner, application owner, and data classification?  
