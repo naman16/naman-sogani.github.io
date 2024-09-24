@@ -15,9 +15,7 @@ In the context of CNAPP, "pre-deployment" security encompasses a range of capabi
   - *Scaling Across CI / CD Pipelines:* In a decentralized model where teams have autonomy over their development processes, the proliferation of diverse pipelines creates a complex landscape for security integration. This is because:  
     * Teams often utilize various CI/CD tools \- such as Jenkins, GitHub Actions, Azure DevOps, etc. \- each with distinct configurations and execution environments. Additionally, in large enterprises, the sheer volume of pipelines, often numbering in the hundreds or thousands, significantly increases the number of points that require security integration. This diversity complicates the enforcement of consistent scanning practices, as each pipeline may necessitate a customized approach to effectively implement IaC and secret scanning.  
     * Moreover, the decentralized nature of pipeline management means that security teams often lack visibility into all existing pipelines, making it challenging to ensure comprehensive coverage. The variety in pipeline configurations also complicates the task of standardizing scanning tools and processes, as what works for one pipeline might not be compatible with another.
-
     To address these challenges, consider the following:
-
     * *Standardize CI / CD Toolchain*: Collaborate with your peers in the engineering teams and build a business case for standardizing on a subset of CI / CD technologies and seek executive buy-ins. Focus on non-security benefits to gain traction and drive the message home. For example, “*Implementing a unified set of tools across teams, improves collaboration and knowledge sharing, as all members work with the same processes and technologies. This standardization also leads to faster onboarding of new team members and easier skill transfer between projects, as there's only one set of tools to learn. Furthermore, a standardized toolchain reduces complexity and operational friction, simplifying maintenance and support while potentially leading to cost savings through consolidated licensing and training.*”  
     * *Maintain Security Integration Toolkit:* Develop and maintain a central repository of integration scripts and configurations for the approved CI/CD pipeline technologies, making it easier to implement security scanning consistently. Include clear guidelines and documentation to facilitate increased adoption by engineering teams. Ensure the repository is regularly updated to incorporate new CI/CD technologies or vendor updates.  
   - *Preventing Bypass of Scanning Workflows:* In many organizations that have a decentralized operating model for cloud, application and DevOps teams often persist admin privileges over their respective pipelines. This can pose challenges for enforcing scanning, as these teams can disable or bypass scanning steps. Therefore, when implementing scanning across the organization, it is crucial to design processes and solutions that minimize or restrict bypasses, ideally requiring security approval for any exceptions. Below are key considerations for this:  
@@ -31,9 +29,7 @@ In the context of CNAPP, "pre-deployment" security encompasses a range of capabi
     * Dev & Test Environments —\> No critical issues  
     * Stg / Pre-Prod Environments —\> No critical and high issues  
     * Prod Environments —\> No critical, high, and medium issues
-
     There’s potential for further granularity here based on factors such as workload type, business criticality, data sensitivity, and regulatory requirements. Another example I have seen for organizations running regulated workloads:
-
     * Non-Regulated Workloads:  
       * Dev & Test Environments —\> No critical issues  
       * Stg / Pre-Prod Environments —\> No critical and high issues  
@@ -42,7 +38,7 @@ In the context of CNAPP, "pre-deployment" security encompasses a range of capabi
       * Dev & Test Environments —\> No critical and high issues  
       * Stg / Pre-Prod Environments —\> No critical, high, and medium issues  
       * Prod Environments —\> No critical, high, and medium issues  
-* **Container Image Scanning:** This includes scanning your container images during build to identify misconfigurations, vulnerabilities, and exposed secrets. The key considerations for image scanning are similar to the ones listed above for IaC & secrets scanning. 
+* **Container Image Scanning:** This includes scanning your container images during the build to identify misconfigurations, vulnerabilities, and exposed secrets. The key considerations for image scanning are similar to the ones listed above for IaC & secret scanning. 
 
 # Capabilities Beyond CSPM {#capabilities-beyond-cspm}
 
