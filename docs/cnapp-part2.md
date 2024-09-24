@@ -96,7 +96,7 @@ Operational workflows and technology integrations are important in ensuring that
 - Classifying issues and routing them to the appropriate remediation owners  
 - Setting up integrations with existing tools and workflows  
 - Providing remediation support  
-- Reporting on SLA compliance and overall security posture
+- Reporting on SLA compliance and overall security posture \
 While the specific workflows and integrations will differ for each organization based on factors such as size, existing toolchain, cloud and DevOps maturity, release and change management processes, etc., my experience working with various organizations around the operationalization of CNAPP issues has revealed the below key principles:
 - Focus on developing solutions that are “good enough” and work for your organization rather than overengineering to build the perfect workflows and integrations.   
 - Foster a partnership with application and development teams by meeting them halfway in how they prefer to receive issue communications (e.g., email, Teams, Jira, Slack). Avoid imposing your ideal scenario on them. This doesn’t mean accommodating every tool; rather, concentrate on the tools your organization predominantly uses and allow teams to choose their preferences from that list.  
