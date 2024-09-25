@@ -47,12 +47,14 @@ In the context of CNAPP, "pre-deployment" security encompasses a range of capabi
 As a recap from the previous blog, I expanded the definition of CSPM to include core CSPM because they are relatively straightforward to implement, deliver quick value, and have a similar path to operationalization. In this section, I will focus on the additional capabilities of CNAPP that build upon the insights and lessons learned \- such as high-risk areas, cloud environment setup, landing zone design, naming conventions, tagging standards, etc. \- from operationalizing CSPM. Below are some of the core CNAPP capabilities that extend beyond CSPM:
 * **Registry Scanning:** This includes scanning your container registries to detect vulnerabilities and malware on images. This enables you to have visibility into images that:  
   * Have been pushed to the registries outside of the standard CI / CD pipelines  
-  * Have been running in the environment for a long period and have become vulnerable after the initial scan during the build phase 
+  * Have been running in the environment for a long period and have become vulnerable after the initial scan during the build phase
+   
   If your organization uses cloud-native registries (e.g., Amazon Elastic Container Registry (ECR), Azure Container Registry (ACR)), CNAPP tools typically scan them without requiring additional configuration, as this feature is usually enabled by default during the initial setup. However, if you are utilizing a third-party registry (e.g., JFrog Artifactory), further configurations may be necessary for scanning. Below are key considerations for registry scanning:
   - *Managing Volume of Issues:* The number of issues identified can be quite substantial, as registries can become chaotic for several reasons:  
     * Teams may push numerous images and packages while only utilizing a small fraction of those for their workloads.  
     * The lack of a well-defined registry structure can make it difficult to track ownership and accountability.  
     * Registry access can be left widely open (i.e. no RBAC), allowing anyone to push to any location within the registry.
+    
     Given these challenges, it is essential to invest efforts in correlating issues with actual running containers and workloads and prioritizing them for remediation, rather than requiring remediation for all identified issues.
   - *Assigning Remediation Ownership*: The approach to assigning remediation ownership can vary significantly depending on your organization’s operating model, due to the layered nature of containers.   
     * If your organization has a central team (e.g., cloud engineering) responsible for maintaining golden base images (the base layer) that application and DevOps teams build upon with their specific layers, then it is essential to trace the issue back to the vulnerable layer and assign remediation ownership accordingly.  
