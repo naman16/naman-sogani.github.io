@@ -38,7 +38,8 @@ In the context of CNAPP, "pre-deployment" security encompasses a range of capabi
     * Regulated Workloads:  
       * Dev & Test Environments —\> No critical and high issues  
       * Stg / Pre-Prod Environments —\> No critical, high, and medium issues  
-      * Prod Environments —\> No critical, high, and medium issues  
+      * Prod Environments —\> No critical, high, and medium issues
+  
 * **Container Image Scanning:** This includes scanning your container images during build to identify misconfigurations, vulnerabilities, and exposed secrets. The key considerations for image scanning are similar to the ones listed above for IaC & secret scanning. 
 
 # Capabilities Beyond CSPM
