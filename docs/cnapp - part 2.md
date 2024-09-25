@@ -64,16 +64,16 @@ As a recap from the previous blog, I expanded the definition of CSPM to include 
 
     Given these challenges, it is essential to invest efforts in correlating issues with actual running containers and workloads and prioritizing them for remediation, rather than requiring remediation for all identified issues.
 
-- *Assigning Remediation Ownership*: The approach to assigning remediation ownership can vary significantly depending on your organization’s operating model, due to the layered nature of containers.   
-  * If your organization has a central team (e.g., cloud engineering) responsible for maintaining golden base images (the base layer) that application and DevOps teams build upon with their specific layers, then it is essential to trace the issue back to the vulnerable layer and assign remediation ownership accordingly.  
-    * If the issue lies within the base layer, the effort required for remediation across the entire environment increases significantly for the following reasons:  
-      1. The central team must update or create a new golden base image that includes the fix.  
-         2. The consuming teams (i.e., application and DevOps teams) will need to redeploy their applications and workloads using this updated base layer.
-
-         Doing this regularly requires organizations to have mature DevOps processes where teams understand the importance and need to constantly rehydrate their images. Furthermore, there should be good testing and dependency management programs in place to ensure that applications are thoroughly tested before these updates are released to production and that base image modifications do not cause any disruptions.
-
-      * If the issue is associated with the application layer, then the responsibility lies with the respective application / DevOps teams to remediate and redeploy their application / workload images. The operations around this are relatively easier because the burden lies exclusively with the application / DevOps teams and there are no dependencies on an enterprise team.   
-    * If your organization’s setup is one where the concept of golden images does not exist and the application / DevOps teams own the entire lifecycle of the container images, then the ownership assignment and operations are similar to the previous point about managing issues at the application layer.  
+  - *Assigning Remediation Ownership*: The approach to assigning remediation ownership can vary significantly depending on your organization’s operating model, due to the layered nature of containers.   
+    * If your organization has a central team (e.g., cloud engineering) responsible for maintaining golden base images (the base layer) that application and DevOps teams build upon with their specific layers, then it is essential to trace the issue back to the vulnerable layer and assign remediation ownership accordingly.  
+      * If the issue lies within the base layer, the effort required for remediation across the entire environment increases significantly for the following reasons:  
+        1. The central team must update or create a new golden base image that includes the fix.
+        2. The consuming teams (i.e., application and DevOps teams) will need to redeploy their applications and workloads using this updated base layer.
+  
+           Doing this regularly requires organizations to have mature DevOps processes where teams understand the importance and need to constantly rehydrate their images. Furthermore, there should be good testing and dependency management programs in place to ensure that applications are thoroughly tested before these updates are released to production and that base image modifications do not cause any disruptions.
+  
+        * If the issue is associated with the application layer, then the responsibility lies with the respective application / DevOps teams to remediate and redeploy their application / workload images. The operations around this are relatively easier because the burden lies exclusively with the application / DevOps teams and there are no dependencies on an enterprise team.   
+      * If your organization’s setup is one where the concept of golden images does not exist and the application / DevOps teams own the entire lifecycle of the container images, then the ownership assignment and operations are similar to the previous point about managing issues at the application layer.  
         
 * **Cloud Infrastructure Entitlement Management (CIEM), Data Security Posture Management (DSPM) & Attack Surface Management:** Although these are all broad and disparate categories, I have grouped them under one section because the approach to operationalizing each of these capabilities is similar. Once you are able to operationalize one capability, the strategy and process for the rest of the areas will be comparable. Below are the key considerations for these capabilities:  
   - *Current-State Understanding*: If a comprehensive discovery exercise regarding current processes, environment setup, landing zone design, and other factors has not yet been conducted as part of operationalizing CSPM, it should be prioritized as the first step in expanding into these CNAPP areas. Key questions to address during this discovery include:  
