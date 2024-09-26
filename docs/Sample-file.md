@@ -34,20 +34,20 @@ This involves scanning resource deployment files \- such as Terraform, CloudForm
       * *Leverage Native CI / CD Pipeline Capabilities:*
            * Modern CI/CD platforms (e.g., Harness) offer policy management capabilities that allow organizations to define and enforce standardized practices across how their pipelines are created, managed, and executed. Leverage this policy-as-code feature to enforce security scanning (and any other requirements) as “required steps” that need to be embedded for the successful creation and execution of pipelines. This provides reasonable assurance that pipelines are created with the necessary security guardrails.
 
-* *Set Different Policies for Different Environments:* Blanket security requirements (e.g., all critical, high, and medium issues must be remediated) can cause frictions when enforced in lower environments as this inhibits developer productivity and increases the remediation burden for them. As such, it is advisable to have policies that have environmental context baked into them. For example, I have seen successful adoption of policies along the lines of:  
-  * Dev & Test Environments —\> No critical issues  
-  * Stg / Pre-Prod Environments —\> No critical and high issues  
-  * Prod Environments —\> No critical, high, and medium issues
+* *Set Different Policies for Different Environments:* Blanket security requirements (e.g., all critical, high, and medium issues must be remediated) can cause frictions when enforced in lower environments as this inhibits developer productivity and increases the remediation burden for them. As such, it is advisable to have policies that have environmental context baked into them. For example, I have seen successful adoption of policies along the lines of:
+      * Dev & Test Environments —\> No critical issues
+      * Stg / Pre-Prod Environments —\> No critical and high issues
+      * Prod Environments —\> No critical, high, and medium issues
 
   There’s potential for further granularity here based on factors such as workload type, business criticality, data sensitivity, and regulatory requirements. Another example I have seen for organizations running regulated workloads:
-  * Non-Regulated Workloads:  
-    * Dev & Test Environments —\> No critical issues  
-    * Stg / Pre-Prod Environments —\> No critical and high issues  
-    * Prod Environments —\> No critical, high, and medium issues  
-  * Regulated Workloads:  
-    * Dev & Test Environments —\> No critical and high issues  
-    * Stg / Pre-Prod Environments —\> No critical, high, and medium issues  
-    * Prod Environments —\> No critical, high, and medium issues
+      * Non-Regulated Workloads:
+           * Dev & Test Environments —\> No critical issues
+           * Stg / Pre-Prod Environments —\> No critical and high issues  
+           * Prod Environments —\> No critical, high, and medium issues
+        * Regulated Workloads:
+           * Dev & Test Environments —\> No critical and high issues
+           * Stg / Pre-Prod Environments —\> No critical, high, and medium issues  
+           * Prod Environments —\> No critical, high, and medium issues
 
 ### Container Image Scanning
 
