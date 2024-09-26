@@ -21,38 +21,33 @@ This involves scanning resource deployment files—such as Terraform, CloudForma
     * Moreover, the decentralized nature of pipeline management means that security teams often lack visibility into all existing pipelines, making it challenging to ensure comprehensive coverage. The variety in pipeline configurations also complicates the task of standardizing scanning tools and processes, as what works for one pipeline might not be compatible with another.
 
 
-  To address these challenges, consider the following:
+  To address these challenges, consider the following:\
 
-    * **Standardize CI / CD Toolchain:** Collaborate with your peers in the engineering teams and build a business case for standardizing on a subset of CI / CD technologies and seek executive buy-ins. Focus on non-security benefits to gain traction and drive the message home. For example, “Implementing a unified set of tools across teams improves collaboration and knowledge sharing, as all members work with the same processes and technologies. This standardization also leads to faster onboarding of new team members and easier skill transfer between projects, as there's only one set of tools to learn. Furthermore, a standardized toolchain reduces complexity and operational friction, simplifying maintenance and support while potentially leading to cost savings through consolidated licensing and training.”
-    * **Maintain Security Integration Toolkit:** Develop and maintain a central repository of integration scripts and configurations for the approved CI/CD pipeline technologies, making it easier to implement security scanning consistently. Include clear guidelines and documentation to facilitate increased adoption by engineering teams. Ensure the repository is regularly updated to incorporate new CI/CD technologies or vendor updates.
+
+    * _Standardize CI / CD Toolchain:_ Collaborate with your peers in the engineering teams and build a business case for standardizing on a subset of CI / CD technologies and seek executive buy-ins. Focus on non-security benefits to gain traction and drive the message home. For example, “Implementing a unified set of tools across teams improves collaboration and knowledge sharing, as all members work with the same processes and technologies. This standardization also leads to faster onboarding of new team members and easier skill transfer between projects, as there's only one set of tools to learn. Furthermore, a standardized toolchain reduces complexity and operational friction, simplifying maintenance and support while potentially leading to cost savings through consolidated licensing and training.”
+    * _Maintain Security Integration Toolkit:_ Develop and maintain a central repository of integration scripts and configurations for the approved CI/CD pipeline technologies, making it easier to implement security scanning consistently. Include clear guidelines and documentation to facilitate increased adoption by engineering teams. Ensure the repository is regularly updated to incorporate new CI/CD technologies or vendor updates.
 
 * **Preventing Bypass of Scanning Workflows:** In many organizations that have a decentralized operating model for cloud, application, and DevOps teams often persist admin privileges over their respective pipelines. This can pose challenges for enforcing scanning, as these teams can disable or bypass scanning steps. Therefore, when implementing scanning across the organization, it is crucial to design processes and solutions that minimize or restrict bypasses, ideally requiring security approval for any exceptions. Below are key considerations for this:
-  
-  * **Lockdown Important Touchpoints:**  
-    * Isolate essential actions, such as deploying cloud resources or pushing images to registries, into a reusable pipeline or workflow that is secured and can only be modified by a limited group of individuals. This ensures control over the critical touchpoints in the DevOps processes.  
-    * Establish access controls so that deployments or image pushes can only occur through this tightly regulated workflow.  
-    * Integrate security scanning and other requirements directly into these reusable workflows to ensure that necessary security measures are in place, making it difficult for teams to bypass security scans.
-  
-  * **Leverage Native CI / CD Pipeline Capabilities:**  
-    * Modern CI/CD platforms (e.g., Harness) offer policy management capabilities that allow organizations to define and enforce standardized practices across how their pipelines are created, managed, and executed. Leverage this policy-as-code feature to enforce security scanning (and any other requirements) as “required steps” that need to be embedded for the successful creation and execution of pipelines. This provides reasonable assurance that pipelines are created with the necessary security guardrails.
-
+     * _Lockdown Important Touchpoints:_  
+       * Isolate essential actions, such as deploying cloud resources or pushing images to registries, into a reusable pipeline or workflow that is secured and can only be modified by a limited group of individuals. This ensures control over the critical touchpoints in the DevOps processes.  
+       * Establish access controls so that deployments or image pushes can only occur through this tightly regulated workflow.  
+       * Integrate security scanning and other requirements directly into these reusable workflows to ensure that necessary security measures are in place, making it difficult for teams to bypass security scans.
+     * _Leverage Native CI / CD Pipeline Capabilities:_  
+       * Modern CI/CD platforms (e.g., Harness) offer policy management capabilities that allow organizations to define and enforce standardized practices across how their pipelines are created, managed, and executed. Leverage this policy-as-code feature to enforce security scanning (and any other requirements) as “required steps” that need to be embedded for the successful creation and execution of pipelines. This provides reasonable assurance that pipelines are created with the necessary security guardrails.
 
 * **Set Different Policies for Different Environments:** Blanket security requirements (e.g., all critical, high, and medium issues must be remediated) can cause friction when enforced in lower environments as this inhibits developer productivity and increases the remediation burden for them. As such, it is advisable to have policies that have environmental context baked into them. For example, I have seen successful adoption of policies along the lines of:
-  
-  * Dev & Test Environments —> No critical issues  
-  * Stg / Pre-Prod Environments —> No critical and high issues  
-  * Prod Environments —> No critical, high, and medium issues  
+   * Dev & Test Environments —> No critical issues
+   * Stg / Pre-Prod Environments —> No critical and high issues
+   * Prod Environments —> No critical, high, and medium issues  
 
 
    There’s potential for further granularity here based on factors such as workload type, business criticality, data sensitivity, and regulatory requirements. Another example I have seen for organizations running regulated workloads:
-  
-  * **Non-Regulated Workloads:**  
-    * Dev & Test Environments —> No critical issues  
-    * Stg / Pre-Prod Environments —> No critical and high issues  
-    * Prod Environments —> No critical, high, and medium issues  
-
-  * **Regulated Workloads:**  
-    * Dev & Test Environments —> No critical and high issues  
-    * Stg / Pre-Prod Environments —> No critical, high, and medium issues  
-    * Prod Environments —> No critical, high, and medium issues
+   * * _Non-Regulated Workloads:_
+        * Dev & Test Environments —> No critical issues
+        * Stg / Pre-Prod Environments —> No critical and high issues
+        * Prod Environments —> No critical, high, and medium issues 
+   * * _Regulated Workloads:_
+        * Dev & Test Environments —> No critical and high issues
+        * Stg / Pre-Prod Environments —> No critical, high, and medium issues
+        * Prod Environments —> No critical, high, and medium issues 
 
