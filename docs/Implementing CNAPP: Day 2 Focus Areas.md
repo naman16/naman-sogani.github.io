@@ -76,10 +76,11 @@ If your organization uses cloud-native registries (e.g., Amazon Elastic Containe
 
 Below are key considerations for registry scanning:
 
-* *Managing Volume of Issues:* The number of issues identified can be quite substantial, as registries can become chaotic for several reasons: 
-      * Teams may push numerous images and packages while only utilizing a small fraction of those for their workloads.
-      * The lack of a well-defined registry structure can make it difficult to track ownership and accountability.  
-      * Registry access can be left widely open (i.e. no RBAC), allowing anyone to push to any location within the registry.
+* *Managing Volume of Issues:* The number of issues identified can be quite substantial, as registries can become chaotic for several reasons:
+    * Teams may push numerous images and packages while only utilizing a small fraction of those for their workloads.
+    * The lack of a well-defined registry structure can make it difficult to track ownership and accountability.
+    * Registry access can be left widely open (i.e. no RBAC), allowing anyone to push to any location within the registry.
+      
   Given these challenges, it is essential to invest efforts in correlating issues with actual running containers and workloads and prioritizing them for remediation, rather than requiring remediation for all identified issues.
 
 * *Assigning Remediation Ownership*: The approach to assigning remediation ownership can vary significantly depending on your organization’s operating model, due to the layered nature of containers.
@@ -114,12 +115,11 @@ Although these are all broad and disparate categories, I have grouped them under
     * Develop a prioritized backlog of requirements and implement custom policies to identify violations to the design patterns that you have defined as an organization (e.g., resources in development trying to access resources in production, resources in development being publicly exposed, resources in development containing sensitive data, etc.)
 
 
-  Below are some examples to further illustrate the intent behind customization / fine-tuning of CNAPP policies:
-  
-      * Identify all storage buckets and database instances containing PII, PCI, or PHI data that are missing the tag/label “Data Classification: Sensitive.”  
-      * Identify all storage buckets and database instances with PII, PCI, or PHI data that belong to the development or test Organizational Unit (OU).  
-      * Identify all roles that do not have the name “cloud-admin-roles” but possess admin privileges.  
-      * Identify all publicly exposed resources that do not belong to the subscription/account labeled “external-access-account.”
+      Below are some examples to further illustrate the intent behind customization / fine-tuning of CNAPP policies:
+          * Identify all storage buckets and database instances containing PII, PCI, or PHI data that are missing the tag/label “Data Classification: Sensitive.”  
+          * Identify all storage buckets and database instances with PII, PCI, or PHI data that belong to the development or test Organizational Unit (OU).  
+          * Identify all roles that do not have the name “cloud-admin-roles” but possess admin privileges.  
+          * Identify all publicly exposed resources that do not belong to the subscription/account labeled “external-access-account."
 
     
 
