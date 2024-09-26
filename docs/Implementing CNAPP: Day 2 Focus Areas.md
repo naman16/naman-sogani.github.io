@@ -61,9 +61,9 @@ This includes scanning your container images during build to identify misconfigu
 As a recap from the previous blog, I expanded the definition of CSPM to include core CSPM because they are relatively straightforward to implement, deliver quick value, and have a similar path to operationalization. In this section, I will focus on the additional capabilities of CNAPP that build upon the insights and lessons learned \- such as high-risk areas, cloud environment setup, landing zone design, naming conventions, tagging standards, etc. \- from operationalizing CSPM. Below are some of the core CNAPP capabilities that extend beyond CSPM:
 
 1. [Registry Scanning](#registry-scanning)  
-2. [Cloud Infrastructure Entitlement Management (CIEM), Data Security Posture Management (DSPM) & Attack Surface Management](#cloud-infrastructure-entitlement-management-\(ciem\),-data-security-posture-management-\(dspm\)-&-attack-surface-management)  
-3. [Container & Kubernetes Security](#container-&-kubernetes-security)  
-4. [Cloud Detection & Response (CDR)](#cloud-detection-&-response-\(cdr\))
+2. [Cloud Infrastructure Entitlement Management (CIEM), Data Security Posture Management (DSPM) & Attack Surface Management](#cloud-infrastructure-entitlement-management-\(ciem\),-data-security-posture-management-\(dspm\)--attack-surface-management)  
+3. [Container & Kubernetes Security](#container--kubernetes-security)  
+4. [Cloud Detection & Response (CDR)](#cloud-detection--response-\(cdr\))
 
 ### Registry Scanning
 
