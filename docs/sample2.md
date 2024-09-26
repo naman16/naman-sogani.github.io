@@ -23,7 +23,6 @@ This involves scanning resource deployment files—such as Terraform, CloudForma
 
 
 To address CI / CD scalability challenges, consider the following:
-
      * _Standardize CI / CD Toolchain:_ Collaborate with your peers in the engineering teams and build a business case for standardizing on a subset of CI / CD technologies and seek executive buy-ins. Focus on non-security benefits to gain traction and drive the message home. For example, “Implementing a unified set of tools across teams improves collaboration and knowledge sharing, as all members work with the same processes and technologies. This standardization also leads to faster onboarding of new team members and easier skill transfer between projects, as there's only one set of tools to learn. Furthermore, a standardized toolchain reduces complexity and operational friction, simplifying maintenance and support while potentially leading to cost savings through consolidated licensing and training.”
      * _Maintain Security Integration Toolkit:_ Develop and maintain a central repository of integration scripts and configurations for the approved CI/CD pipeline technologies, making it easier to implement security scanning consistently. Include clear guidelines and documentation to facilitate increased adoption by engineering teams. Ensure the repository is regularly updated to incorporate new CI/CD technologies or vendor updates.
 
