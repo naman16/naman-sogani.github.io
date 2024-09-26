@@ -70,9 +70,7 @@ This includes scanning your container registries to detect vulnerabilities and m
 * Have been pushed to the registries outside of the standard CI / CD pipelines  
 * Have been running in the environment for a long period and have become vulnerable after the initial scan during the build phase
 
-If your organization uses cloud-native registries (e.g., Amazon Elastic Container Registry (ECR), Azure Container Registry (ACR)), CNAPP tools typically scan them without requiring additional configuration, as this feature is usually enabled by default during the initial setup. However, if you are utilizing a third-party registry (e.g., JFrog Artifactory), further configurations may be necessary for scanning. 
-
-Below are key considerations for registry scanning:
+If your organization uses cloud-native registries (e.g., Amazon Elastic Container Registry (ECR), Azure Container Registry (ACR)), CNAPP tools typically scan them without requiring additional configuration, as this feature is usually enabled by default during the initial setup. However, if you are utilizing a third-party registry (e.g., JFrog Artifactory), further configurations may be necessary for scanning. Below are key considerations for registry scanning:
 * *Managing Volume of Issues:* The number of issues identified can be quite substantial, as registries can become chaotic for several reasons:
     * Teams may push numerous images and packages while only utilizing a small fraction of those for their workloads.
     * The lack of a well-defined registry structure can make it difficult to track ownership and accountability.
@@ -102,7 +100,6 @@ Although these are all broad and disparate categories, I have grouped them under
     * Is there a comprehensive asset inventory that tracks various subscriptions, accounts, and projects known or expected to have publicly exposed endpoints or sensitive data sources?
     * What does the networking setup look like, and what approved patterns are in place for publicly exposing endpoints?
 
-
 * *Custom Developing & Fine-Tuning Policies*: Out-of-the-box (OOB) policies are valuable for establishing a baseline understanding of the different types of detections available with the CNAPP tool. However, they lack the necessary context around the setup of the cloud environment to distinguish between different types of resources and accurately detect issues \- such as over-permissive roles (cloud admin roles (expected) v/s EC2 instance roles (not expected)), presence of sensitive data sources (S3 bucket in regulated production account containing PII (expected) v/s S3 bucket in development containing PII (not expected)), and externally exposed endpoints (ALB in a production account expected to have internet exposure (expected) v/s ALB in development account (not expected)). Simply enabling these policies without any customization or fine-tuning can lead to false positives or a high volume of risk exceptions. Therefore, it is essential to prioritize customization and fine-tuning from the outset when operationalizing these CNAPP areas. Below are some of the customizations you should consider applying:
     * Use the baseline CNAPP policies as a starting point and
         * Leverage resource tags, resource names, and accounts / subscription information to apply filtering on the base policies so that context-unaware requirements are not enforced (e.g., it is expected for cloud admins to have excessive (or admin) privileges in the environment but not for EC2 instance roles)
@@ -115,8 +112,6 @@ Although these are all broad and disparate categories, I have grouped them under
         * Identify all storage buckets and database instances with PII, PCI, or PHI data that belong to the development or test Organizational Unit (OU).
         * Identify all roles that do not have the name “cloud-admin-roles” but possess admin privileges.
         * Identify all publicly exposed resources that do not belong to the subscription/account labeled “external-access-account."
-
-    
 
 * *Correlating Findings Across Different CNAPP Areas*: Once you have familiarized yourself with the environment and have some experience in developing CNAPP policies across the above mentioned different areas, you can develop more complex detections that string together issues from the different capability areas to uncover more interesting insights. Some examples include:
     * IAM roles in the development OU have cross-account access to roles in production OU which have admin privileges on storage buckets or database instances that have sensitive data
