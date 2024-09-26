@@ -62,10 +62,10 @@ As a recap from the previous blog, I expanded the definition of CSPM to include 
 
 1. [Registry Scanning](#registry-scanning)  
 2. [Cloud Infrastructure Entitlement Management (CIEM), Data Security Posture Management (DSPM) & Attack Surface Management](#cloud-infrastructure-entitlement-management-\(ciem\),-data-security-posture-management-\(dspm\)-&-attack-surface-management)  
-3. [Container & Kubernetes Security](#container-&-kubernetes-security:)  
+3. [Container & Kubernetes Security](#container-&-kubernetes-security)  
 4. [Cloud Detection & Response (CDR)](#cloud-detection-&-response-\(cdr\))
 
-### Registry Scanning {#registry-scanning}
+### Registry Scanning
 
 This includes scanning your container registries to detect vulnerabilities and malware on images. This enables you to have visibility into images that:
 
@@ -94,7 +94,7 @@ Below are key considerations for registry scanning:
     * If the issue is associated with the application layer, then the responsibility lies with the respective application / DevOps teams to remediate and redeploy their application / workload images. The operations around this are relatively easier because the burden lies exclusively with the application / DevOps teams and there are no dependencies on an enterprise team.   
   * If your organization’s setup is one where the concept of golden images does not exist and the application / DevOps teams own the entire lifecycle of the container images, then the ownership assignment and operations are similar to the previous point about managing issues at the application layer.
 
-### Cloud Infrastructure Entitlement Management (CIEM), Data Security Posture Management (DSPM) & Attack Surface Management {#cloud-infrastructure-entitlement-management-(ciem),-data-security-posture-management-(dspm)-&-attack-surface-management}
+### Cloud Infrastructure Entitlement Management (CIEM), Data Security Posture Management (DSPM) & Attack Surface Management
 
 Although these are all broad and disparate categories, I have grouped them under one section because the approach to operationalizing each of these capabilities is similar. Once you are able to operationalize one capability, the strategy and process for the rest of the areas will be comparable. Below are the key considerations for these capabilities:
 
@@ -128,7 +128,7 @@ Although these are all broad and disparate categories, I have grouped them under
   * Lambda functions are publicly exposed and have administrative privileges on cloud-admin-roles  
   * Lambda functions are publicly exposed and contain critical vulnerabilities with known public exploit
 
-### Container & Kubernetes Security:  {#container-&-kubernetes-security:}
+### Container & Kubernetes Security:
 
 This section addresses capabilities focused on securing actively running containerized workloads and Kubernetes clusters, specifically Cloud Workload Protection Platform (CWPP), Kubernetes Security Posture Management (KSPM), and Kubernetes Admissions Controller. It does not encompass capabilities like helm chart/Kubernetes manifest file scanning, Dockerfile scanning, and container image scanning, as these are more “pre-deployment” and have already been discussed above. Additionally, the rationale for grouping these runtime capabilities is that they need to be enabled at the container, node, or cluster level. This decentralized approach can lead to increased operational complexity when scaling these capabilities across all platforms. Below are some key considerations for ensuring the runtime security of containers and Kubernetes clusters:
 
