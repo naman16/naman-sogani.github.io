@@ -116,6 +116,7 @@ Although these are all broad and disparate categories, I have grouped them under
 
 
       Below are some examples to further illustrate the intent behind customization / fine-tuning of CNAPP policies:
+      
           * Identify all storage buckets and database instances containing PII, PCI, or PHI data that are missing the tag/label “Data Classification: Sensitive.”  
           * Identify all storage buckets and database instances with PII, PCI, or PHI data that belong to the development or test Organizational Unit (OU).  
           * Identify all roles that do not have the name “cloud-admin-roles” but possess admin privileges.  
