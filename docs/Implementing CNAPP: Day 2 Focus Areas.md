@@ -112,7 +112,7 @@ Although these are all broad and disparate categories, I have grouped them under
         * Customize / modify the specific logic to tailor to your standards (e.g., if your organization tracks inactivity at 120 days instead of the OOB CNAPP policy of 90 days, then customize the policies accordingly).
     * Develop a prioritized backlog of requirements and implement custom policies to identify violations to the design patterns that you have defined as an organization (e.g., resources in development trying to access resources in production, resources in development being publicly exposed, resources in development containing sensitive data, etc.)
 
-          Below are some examples to further illustrate the intent behind customization / fine-tuning of CNAPP policies:
+  Below are some examples to further illustrate the intent behind customization / fine-tuning of CNAPP policies:
       * Identify all storage buckets and database instances containing PII, PCI, or PHI data that are missing the tag/label “Data Classification: Sensitive.”  
       * Identify all storage buckets and database instances with PII, PCI, or PHI data that belong to the development or test Organizational Unit (OU).  
       * Identify all roles that do not have the name “cloud-admin-roles” but possess admin privileges.  
