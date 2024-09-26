@@ -80,7 +80,6 @@ Below are key considerations for registry scanning:
       * Teams may push numerous images and packages while only utilizing a small fraction of those for their workloads.
       * The lack of a well-defined registry structure can make it difficult to track ownership and accountability.  
       * Registry access can be left widely open (i.e. no RBAC), allowing anyone to push to any location within the registry.
-
   Given these challenges, it is essential to invest efforts in correlating issues with actual running containers and workloads and prioritizing them for remediation, rather than requiring remediation for all identified issues.
 
 * *Assigning Remediation Ownership*: The approach to assigning remediation ownership can vary significantly depending on your organization’s operating model, due to the layered nature of containers.
@@ -90,6 +89,8 @@ Below are key considerations for registry scanning:
             * The consuming teams (i.e., application and DevOps teams) will need to redeploy their applications and workloads using this updated base layer.
 
           Doing this regularly requires organizations to have mature DevOps processes where teams understand the importance and need to constantly rehydrate their images. Furthermore, there should be good testing and dependency management programs in place to ensure that applications are thoroughly tested before these updates are released to production and that base image modifications do not cause any disruptions.
+
+
         * If the issue is associated with the application layer, then the responsibility lies with the respective application / DevOps teams to remediate and redeploy their application / workload images. The operations around this are relatively easier because the burden lies exclusively with the application / DevOps teams and there are no dependencies on an enterprise team.
     * If your organization’s setup is one where the concept of golden images does not exist and the application / DevOps teams own the entire lifecycle of the container images, then the ownership assignment and operations are similar to the previous point about managing issues at the application layer.
 
@@ -112,7 +113,9 @@ Although these are all broad and disparate categories, I have grouped them under
         * Customize / modify the specific logic to tailor to your standards (e.g., if your organization tracks inactivity at 120 days instead of the OOB CNAPP policy of 90 days, then customize the policies accordingly).
     * Develop a prioritized backlog of requirements and implement custom policies to identify violations to the design patterns that you have defined as an organization (e.g., resources in development trying to access resources in production, resources in development being publicly exposed, resources in development containing sensitive data, etc.)
 
+
   Below are some examples to further illustrate the intent behind customization / fine-tuning of CNAPP policies:
+  
       * Identify all storage buckets and database instances containing PII, PCI, or PHI data that are missing the tag/label “Data Classification: Sensitive.”  
       * Identify all storage buckets and database instances with PII, PCI, or PHI data that belong to the development or test Organizational Unit (OU).  
       * Identify all roles that do not have the name “cloud-admin-roles” but possess admin privileges.  
