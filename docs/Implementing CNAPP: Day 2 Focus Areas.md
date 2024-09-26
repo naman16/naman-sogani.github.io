@@ -63,11 +63,11 @@ As a recap from the previous blog, I expanded the definition of CSPM to include 
 
     Given these challenges, it is essential to invest efforts in correlating issues with actual running containers and workloads and prioritizing them for remediation, rather than requiring remediation for all identified issues.
 
-- *Assigning Remediation Ownership*: The approach to assigning remediation ownership can vary significantly depending on your organization’s operating model, due to the layered nature of containers.   
-  * If your organization has a central team (e.g., cloud engineering) responsible for maintaining golden base images (the base layer) that application and DevOps teams build upon with their specific layers, then it is essential to trace the issue back to the vulnerable layer and assign remediation ownership accordingly.  
-    * If the issue lies within the base layer, the effort required for remediation across the entire environment increases significantly for the following reasons:  
-      1. The central team must update or create a new golden base image that includes the fix.  
-         2. The consuming teams (i.e., application and DevOps teams) will need to redeploy their applications and workloads using this updated base layer.
+  - *Assigning Remediation Ownership*: The approach to assigning remediation ownership can vary significantly depending on your organization’s operating model, due to the layered nature of containers.   
+    * If your organization has a central team (e.g., cloud engineering) responsible for maintaining golden base images (the base layer) that application and DevOps teams build upon with their specific layers, then it is essential to trace the issue back to the vulnerable layer and assign remediation ownership accordingly.  
+      * If the issue lies within the base layer, the effort required for remediation across the entire environment increases significantly for the following reasons:  
+        1. The central team must update or create a new golden base image that includes the fix.
+        2. The consuming teams (i.e., application and DevOps teams) will need to redeploy their applications and workloads using this updated base layer.
 
          Doing this regularly requires organizations to have mature DevOps processes where teams understand the importance and need to constantly rehydrate their images. Furthermore, there should be good testing and dependency management programs in place to ensure that applications are thoroughly tested before these updates are released to production and that base image modifications do not cause any disruptions.
 
