@@ -77,49 +77,49 @@ If your organization uses cloud-native registries (e.g., Amazon Elastic Containe
 Below are key considerations for registry scanning:
 
 * *Managing Volume of Issues:* The number of issues identified can be quite substantial, as registries can become chaotic for several reasons:  
-  * Teams may push numerous images and packages while only utilizing a small fraction of those for their workloads.  
-  * The lack of a well-defined registry structure can make it difficult to track ownership and accountability.  
-  * Registry access can be left widely open (i.e. no RBAC), allowing anyone to push to any location within the registry.
+      * Teams may push numerous images and packages while only utilizing a small fraction of those for their workloads.  
+      * The lack of a well-defined registry structure can make it difficult to track ownership and accountability.  
+      * Registry access can be left widely open (i.e. no RBAC), allowing anyone to push to any location within the registry.
 
   Given these challenges, it is essential to invest efforts in correlating issues with actual running containers and workloads and prioritizing them for remediation, rather than requiring remediation for all identified issues.
 
 * *Assigning Remediation Ownership*: The approach to assigning remediation ownership can vary significantly depending on your organization’s operating model, due to the layered nature of containers.   
-  * If your organization has a central team (e.g., cloud engineering) responsible for maintaining golden base images (the base layer) that application and DevOps teams build upon with their specific layers, then it is essential to trace the issue back to the vulnerable layer and assign remediation ownership accordingly.  
-    * If the issue lies within the base layer, the effort required for remediation across the entire environment increases significantly for the following reasons:  
-      * The central team must update or create a new golden base image that includes the fix.  
-      * The consuming teams (i.e., application and DevOps teams) will need to redeploy their applications and workloads using this updated base layer.
+      * If your organization has a central team (e.g., cloud engineering) responsible for maintaining golden base images (the base layer) that application and DevOps teams build upon with their specific layers, then it is essential to trace the issue back to the vulnerable layer and assign remediation ownership accordingly.  
+        * If the issue lies within the base layer, the effort required for remediation across the entire environment increases significantly for the following reasons:  
+          * The central team must update or create a new golden base image that includes the fix.  
+          * The consuming teams (i.e., application and DevOps teams) will need to redeploy their applications and workloads using this updated base layer.
 
       Doing this regularly requires organizations to have mature DevOps processes where teams understand the importance and need to constantly rehydrate their images. Furthermore, there should be good testing and dependency management programs in place to ensure that applications are thoroughly tested before these updates are released to production and that base image modifications do not cause any disruptions.
 
-    * If the issue is associated with the application layer, then the responsibility lies with the respective application / DevOps teams to remediate and redeploy their application / workload images. The operations around this are relatively easier because the burden lies exclusively with the application / DevOps teams and there are no dependencies on an enterprise team.   
-  * If your organization’s setup is one where the concept of golden images does not exist and the application / DevOps teams own the entire lifecycle of the container images, then the ownership assignment and operations are similar to the previous point about managing issues at the application layer.
+        * If the issue is associated with the application layer, then the responsibility lies with the respective application / DevOps teams to remediate and redeploy their application / workload images. The operations around this are relatively easier because the burden lies exclusively with the application / DevOps teams and there are no dependencies on an enterprise team.   
+      * If your organization’s setup is one where the concept of golden images does not exist and the application / DevOps teams own the entire lifecycle of the container images, then the ownership assignment and operations are similar to the previous point about managing issues at the application layer.
 
 ### Cloud Infrastructure Entitlement Management (CIEM), Data Security Posture Management (DSPM) & Attack Surface Management
 
 Although these are all broad and disparate categories, I have grouped them under one section because the approach to operationalizing each of these capabilities is similar. Once you are able to operationalize one capability, the strategy and process for the rest of the areas will be comparable. Below are the key considerations for these capabilities:
 
 * *Current-State Understanding*: If a comprehensive discovery exercise regarding current processes, environment setup, landing zone design, and other factors has not yet been conducted as part of operationalizing CSPM, it should be prioritized as the first step in expanding into these CNAPP areas. Key questions to address during this discovery include:  
-  * What is the tagging standard in place, and how well is it adopted? Does the standard include details such as resource owner, application owner, and data classification?  
-  * What is the naming convention for resources, and is it applied consistently? For example, Is there a clear method for distinguishing between cloud admin resources, developer resources, and security resources?  
-  * Do you have a complete list of third parties that are expected to have access to the cloud environments?  
-  * What are the different 3rd parties that are expected to have access to the cloud environments?    
-  * Is there a comprehensive asset inventory that tracks various subscriptions, accounts, and projects known or expected to have publicly exposed endpoints or sensitive data sources?  
-  * What does the networking setup look like, and what approved patterns are in place for publicly exposing endpoints?
+      * What is the tagging standard in place, and how well is it adopted? Does the standard include details such as resource owner, application owner, and data classification? 
+      * What is the naming convention for resources, and is it applied consistently? For example, Is there a clear method for distinguishing between cloud admin resources, developer resources, and security resources?  
+      * Do you have a complete list of third parties that are expected to have access to the cloud environments?  
+      * What are the different 3rd parties that are expected to have access to the cloud environments?    
+      * Is there a comprehensive asset inventory that tracks various subscriptions, accounts, and projects known or expected to have publicly exposed endpoints or sensitive data sources?  
+      * What does the networking setup look like, and what approved patterns are in place for publicly exposing endpoints?
 
     
 
 * *Custom Developing & Fine-Tuning Policies*: Out-of-the-box (OOB) policies are valuable for establishing a baseline understanding of the different types of detections available with the CNAPP tool. However, they lack the necessary context around the setup of the cloud environment to distinguish between different types of resources and accurately detect issues \- such as over-permissive roles (cloud admin roles (expected) v/s EC2 instance roles (not expected)), presence of sensitive data sources (S3 bucket in regulated production account containing PII (expected) v/s S3 bucket in development containing PII (not expected)), and externally exposed endpoints (ALB in a production account expected to have internet exposure (expected) v/s ALB in development account (not expected)). Simply enabling these policies without any customization or fine-tuning can lead to false positives or a high volume of risk exceptions. Therefore, it is essential to prioritize customization and fine-tuning from the outset when operationalizing these CNAPP areas. Below are some of the customizations you should consider applying:  
-  * Use the baseline CNAPP policies as a starting point and  
-    * Leverage resource tags, resource names, and accounts / subscription information to apply filtering on the base policies so that context-unaware requirements are not enforced (e.g., it is expected for cloud admins to have excessive (or admin) privileges in the environment but not for EC2 instance roles)  
-    * Customize / modify the specific logic to tailor to your standards (e.g., if your organization tracks inactivity at 120 days instead of the OOB CNAPP policy of 90 days, then customize the policies accordingly).  
-  * Develop a prioritized backlog of requirements and implement custom policies to identify violations to the design patterns that you have defined as an organization (e.g., resources in development trying to access resources in production, resources in development being publicly exposed, resources in development containing sensitive data, etc.)
+      * Use the baseline CNAPP policies as a starting point and  
+        * Leverage resource tags, resource names, and accounts / subscription information to apply filtering on the base policies so that context-unaware requirements are not enforced (e.g., it is expected for cloud admins to have excessive (or admin) privileges in the environment but not for EC2 instance roles)  
+        * Customize / modify the specific logic to tailor to your standards (e.g., if your organization tracks inactivity at 120 days instead of the OOB CNAPP policy of 90 days, then customize the policies accordingly).  
+      * Develop a prioritized backlog of requirements and implement custom policies to identify violations to the design patterns that you have defined as an organization (e.g., resources in development trying to access resources in production, resources in development being publicly exposed, resources in development containing sensitive data, etc.)
 
   Below are some examples to further illustrate the intent behind customization / fine-tuning of CNAPP policies:
 
-  * Identify all storage buckets and database instances containing PII, PCI, or PHI data that are missing the tag/label “Data Classification: Sensitive.”  
-  * Identify all storage buckets and database instances with PII, PCI, or PHI data that belong to the development or test Organizational Unit (OU).  
-  * Identify all roles that do not have the name “cloud-admin-roles” but possess admin privileges.  
-  * Identify all publicly exposed resources that do not belong to the subscription/account labeled “external-access-account.”
+      * Identify all storage buckets and database instances containing PII, PCI, or PHI data that are missing the tag/label “Data Classification: Sensitive.”  
+      * Identify all storage buckets and database instances with PII, PCI, or PHI data that belong to the development or test Organizational Unit (OU).  
+      * Identify all roles that do not have the name “cloud-admin-roles” but possess admin privileges.  
+      * Identify all publicly exposed resources that do not belong to the subscription/account labeled “external-access-account.”
 
     
 
