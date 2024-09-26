@@ -4,7 +4,7 @@ In the first part of the Cloud-Native Application Protection Platform (CNAPP) bl
 
 1. [Pre-Deployment Security Capabilities](#pre-deployment-security-capabilities)  
 2. [Capabilities Beyond CSPM](#capabilities-beyond-cspm)  
-3. [Operational Workflows & Technology Integrations](operational-workflows--technology-integrations)
+3. [Operational Workflows & Technology Integrations](#operational-workflows--technology-integrations)
 
 ## Pre-Deployment Security Capabilities
 
