@@ -43,7 +43,8 @@ This involves scanning resource deployment files—such as Terraform, CloudForma
   * Stg / Pre-Prod Environments —> No critical and high issues  
   * Prod Environments —> No critical, high, and medium issues  
 
-There’s potential for further granularity here based on factors such as workload type, business criticality, data sensitivity, and regulatory requirements. Another example I have seen for organizations running regulated workloads:
+
+   There’s potential for further granularity here based on factors such as workload type, business criticality, data sensitivity, and regulatory requirements. Another example I have seen for organizations running regulated workloads:
   
   * **Non-Regulated Workloads:**  
     * Dev & Test Environments —> No critical issues  
