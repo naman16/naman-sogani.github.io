@@ -6,7 +6,7 @@ In the first part of the Cloud-Native Application Protection Platform (CNAPP) bl
 2. [Capabilities Beyond CSPM](#capabilities-beyond-cspm)  
 3. [Operational Workflows & Technology Integrations](#operational-workflows--technology-integrations)
 
-# Pre-Deployment Security Capabilities
+## Pre-Deployment Security Capabilities
 
 In the context of CNAPP, "pre-deployment" security encompasses a range of capabilities integrated into CI/CD pipelines and the overall development lifecycle to identify and block insecure resources before they enter cloud environments. Often, I have noticed that this term is narrowly defined to apply only to production environments. However, in my experience, a broader interpretation of this term \- viewing it as applicable to all stages before cloud deployment i.e. “before reaching cloud environments” \- is more effective. This allows you to shift-left and roll-out capabilities in a standardized manner rather than managing disparate processes across different environments. Additionally, you can then implement policy thresholds that enforce stricter security requirements in lower environments compared to higher environments to provide the necessary freedom needed for experimentation, development, and testing. Below are the primary pre-deployment capabilities:
 
@@ -14,7 +14,7 @@ In the context of CNAPP, "pre-deployment" security encompasses a range of capabi
     - *Scaling Across CI / CD Pipelines:* In a decentralized model where teams have autonomy over their development processes, the proliferation of diverse pipelines creates a complex landscape for security integration. This is because:  
           * Teams often utilize various CI/CD tools \- such as Jenkins, GitHub Actions, Azure DevOps, etc. \- each with distinct configurations and execution environments. Additionally, in large enterprises, the sheer volume of pipelines, often numbering in the hundreds or thousands, significantly increases the number of points that require security integration. This diversity complicates the enforcement of consistent scanning practices, as each pipeline may necessitate a customized approach to effectively implement IaC and secret scanning.  
           * Moreover, the decentralized nature of pipeline management means that security teams often lack visibility into all existing pipelines, making it challenging to ensure comprehensive coverage. The variety in pipeline configurations also complicates the task of standardizing scanning tools and processes, as what works for one pipeline might not be compatible with another.  
-      
+
 
     To address these challenges, consider the following:
     - *Standardize CI / CD Toolchain*: Collaborate with your peers in the engineering teams and build a business case for standardizing on a subset of CI / CD technologies and seek executive buy-ins. Focus on non-security benefits to gain traction and drive the message home. For example, “*Implementing a unified set of tools across teams, improves collaboration and knowledge sharing, as all members work with the same processes and technologies. This standardization also leads to faster onboarding of new team members and easier skill transfer between projects, as there's only one set of tools to learn. Furthermore, a standardized toolchain reduces complexity and operational friction, simplifying maintenance and support while potentially leading to cost savings through consolidated licensing and training.*”
@@ -46,7 +46,7 @@ In the context of CNAPP, "pre-deployment" security encompasses a range of capabi
           
 * **Container Image Scanning:** This includes scanning your container images during build to identify misconfigurations, vulnerabilities, and exposed secrets. The key considerations for image scanning are similar to the ones listed above for IaC & secret scanning. 
 
-# Capabilities Beyond CSPM
+## Capabilities Beyond CSPM
 
 As a recap from the previous blog, I expanded the definition of CSPM to include core CSPM because they are relatively straightforward to implement, deliver quick value, and have a similar path to operationalization. In this section, I will focus on the additional capabilities of CNAPP that build upon the insights and lessons learned \- such as high-risk areas, cloud environment setup, landing zone design, naming conventions, tagging standards, etc. \- from operationalizing CSPM. Below are some of the core CNAPP capabilities that extend beyond CSPM:
 
@@ -109,7 +109,7 @@ As a recap from the previous blog, I expanded the definition of CSPM to include 
   - Identify all cloud IAM roles that performed read actions on a high (above 15\) number of services in the production OU in the last 24 hours  
   - Identify all EC2 instances that are publicly exposed and attempted to create an IAM user with access keys and admin privileges
 
-# Operational Workflows & Technology Integrations
+## Operational Workflows & Technology Integrations
 
 Operational workflows and technology integrations are important in ensuring that the insights generated by CNAPP tools are actioned efficiently and timely, thereby bridging the gap between identifying security issues and practical risk mitigation. This involves aspects such as:
 
