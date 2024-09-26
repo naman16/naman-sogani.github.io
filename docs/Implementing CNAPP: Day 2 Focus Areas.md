@@ -79,7 +79,7 @@ If your organization uses cloud-native registries (e.g., Amazon Elastic Containe
     * The lack of a well-defined registry structure can make it difficult to track ownership and accountability.
     * Registry access can be left widely open (i.e. no RBAC), allowing anyone to push to any location within the registry.
       
-  Given these challenges, it is essential to invest efforts in correlating issues with actual running containers and workloads and prioritizing them for remediation, rather than requiring remediation for all identified issues.
+      Given these challenges, it is essential to invest efforts in correlating issues with actual running containers and workloads and prioritizing them for remediation, rather than requiring remediation for all identified issues.
 
 * *Assigning Remediation Ownership*: The approach to assigning remediation ownership can vary significantly depending on your organization’s operating model, due to the layered nature of containers.
     * If your organization has a central team (e.g., cloud engineering) responsible for maintaining golden base images (the base layer) that application and DevOps teams build upon with their specific layers, then it is essential to trace the issue back to the vulnerable layer and assign remediation ownership accordingly.
@@ -87,7 +87,7 @@ If your organization uses cloud-native registries (e.g., Amazon Elastic Containe
             * The central team must update or create a new golden base image that includes the fix.
             * The consuming teams (i.e., application and DevOps teams) will need to redeploy their applications and workloads using this updated base layer.
 
-          Doing this regularly requires organizations to have mature DevOps processes where teams understand the importance and need to constantly rehydrate their images. Furthermore, there should be good testing and dependency management programs in place to ensure that applications are thoroughly tested before these updates are released to production and that base image modifications do not cause any disruptions.
+              Doing this regularly requires organizations to have mature DevOps processes where teams understand the importance and need to constantly rehydrate their images. Furthermore, there should be good testing and dependency management programs in place to ensure that applications are thoroughly tested before these updates are released to production and that base image modifications do not cause any disruptions.
           
         * If the issue is associated with the application layer, then the responsibility lies with the respective application / DevOps teams to remediate and redeploy their application / workload images. The operations around this are relatively easier because the burden lies exclusively with the application / DevOps teams and there are no dependencies on an enterprise team.
     * If your organization’s setup is one where the concept of golden images does not exist and the application / DevOps teams own the entire lifecycle of the container images, then the ownership assignment and operations are similar to the previous point about managing issues at the application layer.
