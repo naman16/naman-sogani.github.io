@@ -23,7 +23,6 @@ This involves scanning resource deployment files—such as Terraform, CloudForma
 
 
     To address CI / CD scalability challenges, consider the following:
-
      * _Standardize CI / CD Toolchain:_ Collaborate with your peers in the engineering teams and build a business case for standardizing on a subset of CI / CD technologies and seek executive buy-ins. Focus on non-security benefits to gain traction and drive the message home. For example, "Implementing a unified set of tools across teams improves collaboration and knowledge sharing, as all members work with the same processes and technologies. This standardization also leads to faster onboarding of new team members and easier skill transfer between projects, as there's only one set of tools to learn. Furthermore, a standardized toolchain reduces complexity and operational friction, simplifying maintenance and support while potentially leading to cost savings through consolidated licensing and training."
      * _Maintain Security Integration Toolkit:_ Develop and maintain a central repository of integration scripts and configurations for the approved CI/CD pipeline technologies, making it easier to implement security scanning consistently. Include clear guidelines and documentation to facilitate increased adoption by engineering teams. Ensure the repository is regularly updated to incorporate new CI/CD technologies or vendor updates.
 
@@ -42,7 +41,6 @@ This involves scanning resource deployment files—such as Terraform, CloudForma
 
 
     There’s potential for further granularity here based on factors such as workload type, business criticality, data sensitivity, and regulatory requirements. Another example I have seen for organizations running regulated workloads:
-
      * _Non-Regulated Workloads:_
           * Dev & Test Environments —> No critical issues
           * Stg / Pre-Prod Environments —> No critical and high issues
@@ -75,7 +73,6 @@ This includes scanning your container registries to detect vulnerabilities and m
 If your organization uses cloud-native registries (e.g., Amazon Elastic Container Registry (ECR), Azure Container Registry (ACR)), CNAPP tools typically scan them without requiring additional configuration, as this feature is usually enabled by default during the initial setup. However, if you are utilizing a third-party registry (e.g., JFrog Artifactory), further configurations may be necessary for scanning. 
 
 Below are key considerations for registry scanning:
-
 * *Managing Volume of Issues:* The number of issues identified can be quite substantial, as registries can become chaotic for several reasons:
     * Teams may push numerous images and packages while only utilizing a small fraction of those for their workloads.
     * The lack of a well-defined registry structure can make it difficult to track ownership and accountability.
@@ -90,8 +87,6 @@ Below are key considerations for registry scanning:
             * The consuming teams (i.e., application and DevOps teams) will need to redeploy their applications and workloads using this updated base layer.
 
           Doing this regularly requires organizations to have mature DevOps processes where teams understand the importance and need to constantly rehydrate their images. Furthermore, there should be good testing and dependency management programs in place to ensure that applications are thoroughly tested before these updates are released to production and that base image modifications do not cause any disruptions.
-
-
         * If the issue is associated with the application layer, then the responsibility lies with the respective application / DevOps teams to remediate and redeploy their application / workload images. The operations around this are relatively easier because the burden lies exclusively with the application / DevOps teams and there are no dependencies on an enterprise team.
     * If your organization’s setup is one where the concept of golden images does not exist and the application / DevOps teams own the entire lifecycle of the container images, then the ownership assignment and operations are similar to the previous point about managing issues at the application layer.
 
@@ -116,11 +111,10 @@ Although these are all broad and disparate categories, I have grouped them under
 
 
       Below are some examples to further illustrate the intent behind customization / fine-tuning of CNAPP policies:
-      
-          * Identify all storage buckets and database instances containing PII, PCI, or PHI data that are missing the tag/label “Data Classification: Sensitive.”  
-          * Identify all storage buckets and database instances with PII, PCI, or PHI data that belong to the development or test Organizational Unit (OU).  
-          * Identify all roles that do not have the name “cloud-admin-roles” but possess admin privileges.  
-          * Identify all publicly exposed resources that do not belong to the subscription/account labeled “external-access-account."
+        * Identify all storage buckets and database instances containing PII, PCI, or PHI data that are missing the tag/label “Data Classification: Sensitive.”
+        * Identify all storage buckets and database instances with PII, PCI, or PHI data that belong to the development or test Organizational Unit (OU).
+        * Identify all roles that do not have the name “cloud-admin-roles” but possess admin privileges.
+        * Identify all publicly exposed resources that do not belong to the subscription/account labeled “external-access-account."
 
     
 
