@@ -1,4 +1,4 @@
-## CNAPP Implementation: Day 2 Focus Areas and Beyond
+## Implementing CNAPP: Day 2 Focus Areas
 
 In the first part of the Cloud-Native Application Protection Platform (CNAPP) blog ([here](https://naman16.github.io/cloud-security/)), I laid out my thoughts on tool selection criteria and day 1 focus areas. In this blog, I want to double-click into the day 2 focus areas that include pre-deployment security, implementing CNAPP capabilities beyond Cloud Security Posture Management (CSPM), designing issues management workflows, and integrating CNAPP with enterprise tools. Below is the high-level structure of how this document is organized:
 
