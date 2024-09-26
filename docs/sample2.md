@@ -1,4 +1,4 @@
-## Implementing CNAPP: Day 2 Focus Areas
+# Implementing CNAPP: Day 2 Focus Areas
 
 In the first part of the Cloud-Native Application Protection Platform (CNAPP) blog ([here](https://naman16.github.io/cloud-security/)), I laid out my thoughts on tool selection criteria and day 1 focus areas. In this blog, I want to double-click into the day 2 focus areas that include pre-deployment security, implementing CNAPP capabilities beyond Cloud Security Posture Management (CSPM), designing issues management workflows, and integrating CNAPP with enterprise tools. Below is the high-level structure of how this document is organized:
 
@@ -6,14 +6,14 @@ In the first part of the Cloud-Native Application Protection Platform (CNAPP) bl
 2. [Capabilities Beyond CSPM](#heading=h.ncwxq8cplnp5)  
 3. [Operational Workflows & Technology Integrations](#heading=h.kysy7xy2dld0)
 
-## Pre-Deployment Security Capabilities {#pre-deployment-security-capabilities}
+## Pre-Deployment Security Capabilities
 
 In the context of CNAPP, "pre-deployment" security encompasses a range of capabilities integrated into CI/CD pipelines and the overall development lifecycle to identify and block insecure resources before they enter cloud environments. Often, I have noticed that this term is narrowly defined to apply only to production environments. However, in my experience, a broader interpretation of this term \- viewing it as applicable to all stages before cloud deployment i.e. “before reaching cloud environments” \- is more effective. This allows you to shift-left and roll-out capabilities in a standardized manner rather than managing disparate processes across different environments. Additionally, you can then implement policy thresholds that enforce stricter security requirements in lower environments compared to higher environments to provide the necessary freedom needed for experimentation, development, and testing. Below are the primary pre-deployment capabilities:
 
 1. [Infrastructure-as-Code (IaC) & Secrets Scanning](#infrastructure-as-code-\(iac\)-&-secret-scanning)  
 2. [Container Image Scanning](#heading=h.mybvwy9onk3h)
 
-### Infrastructure-as-Code (IaC) & Secret Scanning {#infrastructure-as-code-(iac)-&-secret-scanning}
+### Infrastructure-as-Code (IaC) & Secret Scanning
 
 This involves scanning resource deployment files \- such as Terraform, CloudFormation, ARM templates, Ansible playbooks, Kubernetes manifests, Helm charts, and Dockerfiles \- to identify misconfigurations and exposed secrets. Below are some key considerations for implementing IaC and secret scanning:
 
