@@ -100,7 +100,7 @@ Although these are all broad and disparate categories, I have grouped them under
 * **Current-State Understanding:** If a comprehensive discovery exercise regarding current processes, environment setup, landing zone design, and other factors has not yet been conducted as part of operationalizing CSPM, it should be prioritized as the first step in expanding into these CNAPP areas. Below are example questions to give you insights into the kind of understanding that should be developed:
     * What is the tagging standard in place, and how well is it adopted? Does the standard include details such as resource owner, application owner, and data classification?
     * What is the naming convention for resources, and is it applied consistently? For example, Is there a clear method for distinguishing between cloud admin resources, developer resources, and security resources?
-    * Who is responsible for managing the lifecycle of the different roles and how is that done?
+    * Who is responsible for managing the lifecycle of the different roles and how is it done?
     * What are the different 3rd parties that are expected to have access to the cloud environments?
     * Is there a comprehensive asset inventory that tracks various subscriptions, accounts, and projects known or expected to have publicly exposed endpoints or sensitive data sources?
     * What does the networking setup look like, and what approved patterns are in place for publicly exposing endpoints?
