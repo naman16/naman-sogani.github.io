@@ -109,7 +109,7 @@ Although these are all broad and disparate categories, I have grouped them under
     * Use the baseline CNAPP policies as a starting point and
         * Leverage resource tags, resource names, and accounts / subscription information to apply filtering on the base policies so that context-unaware requirements are not enforced (e.g., it is expected for cloud admins to have excessive (or admin) privileges in the environment but not for EC2 instance roles)
         * Customize / modify the specific logic to tailor to your standards (e.g., if your organization's policy for inactive roles is 120 days instead of the OOB CNAPP policy of 90 days, then customize the policies accordingly).
-    * Develop a prioritized backlog of requirements and implement custom policies to identify violations to the design patterns that you have defined as an organization (e.g., resources in development trying to access resources in production, resources in development being publicly exposed, resources in development containing sensitive data, etc.)
+    * Develop a prioritized backlog of requirements and implement custom policies to identify violations to the design patterns that you have defined as an organization (e.g., resources in development should not access resources in production, resources in development should not be publicly exposed, resources in development should not contain sensitive data, etc.)
 
 
         Below are some examples to further illustrate the intent behind customization / fine-tuning of CNAPP policies:
