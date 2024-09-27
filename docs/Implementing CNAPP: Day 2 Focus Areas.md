@@ -4,16 +4,16 @@ In the first part of the Cloud-Native Application Protection Platform (CNAPP) bl
 
 1. [Pre-Deployment Security Capabilities](#pre-deployment-security-capabilities)  
 2. [Capabilities Beyond CSPM](#capabilities-beyond-cspm)  
-3. [Operational Workflows And Technology Integrations](#operational-workflows-and-technology-integrations)
+3. [Operational Workflows and Technology Integrations](#operational-workflows-and-technology-integrations)
 
 ## Pre-Deployment Security Capabilities
 
 In the context of CNAPP, "pre-deployment" security encompasses a range of capabilities integrated into CI/CD pipelines and the overall development lifecycle to identify and block insecure resources from reaching cloud environments. Often, I have noticed that this term is narrowly defined to apply only to production environments. However, in my experience, a broader interpretation of this term—viewing it as applicable to all stages before cloud deployment, i.e., “before reaching cloud environments”—is more effective. This allows you to shift left and roll out capabilities in a standardized manner rather than managing disparate processes across different environments. Additionally, you can then implement policy thresholds that enforce stricter security requirements in lower environments compared to higher environments to provide the necessary freedom needed for experimentation, development, and testing. Below are the primary pre-deployment capabilities:
 
-1. [Infrastructure-as-Code (IaC) And Secret Scanning](#iac-and-secret-scanning)  
-2. [Container Image Scanning And Software Composition Analysis (SCA)](#container-image-scanning-and-sca)
+1. [Infrastructure-as-Code (IaC) and Secret Scanning](#iac-and-secret-scanning)  
+2. [Container Image Scanning and Software Composition Analysis (SCA)](#container-image-scanning-and-sca)
 
-### IaC And Secret Scanning
+### IaC and Secret Scanning
 
 This involves scanning resource deployment files—such as Terraform, CloudFormation, ARM templates, Ansible playbooks, Kubernetes manifests, Helm charts, and Dockerfiles—to identify misconfigurations and exposed secrets. Below are some key considerations for implementing IaC and secret scanning:
 
@@ -52,7 +52,7 @@ This involves scanning resource deployment files—such as Terraform, CloudForma
           * Stg / Pre-Prod Environments —> No critical, high, and medium issues
           * Prod Environments —> No critical, high, and medium issues
   
-### Container Image Scanning And SCA
+### Container Image Scanning and SCA
 
 This includes scanning your container images and software packages during the build stage to identify vulnerabilities, misconfigurations, exposed secrets, etc.. The key considerations for image scanning and SCA are similar to the ones listed above for IaC & secret scanning. 
 
@@ -61,9 +61,9 @@ This includes scanning your container images and software packages during the bu
 As a recap from the previous blog, I expanded the definition of CSPM to include core CSPM because they are relatively straightforward to implement, deliver quick value, and have a similar path to operationalization. In this section, I will focus on the additional capabilities of CNAPP that build upon the insights and lessons learned \- such as high-risk areas, cloud environment setup, landing zone design, naming conventions, tagging standards, etc. \- from operationalizing CSPM. Below are some of the core CNAPP capabilities that extend beyond CSPM:
 
 1. [Registry Scanning](#registry-scanning)  
-2. [Cloud Infrastructure Entitlement Management (CIEM), Data Security Posture Management (DSPM) And Attack Surface Management](#ciem-dspm-and-attack-surface-management)  
-3. [Container And Kubernetes Security](#container-and-kubernetes-security)  
-4. [Cloud Detection And Response (CDR)](#cloud-detection-and-response-cdr)
+2. [Cloud Infrastructure Entitlement Management (CIEM), Data Security Posture Management (DSPM) and Attack Surface Management](#ciem-dspm-and-attack-surface-management)  
+3. [Container and Kubernetes Security](#container-and-kubernetes-security)  
+4. [Cloud Detection and Response (CDR)](#cloud-detection-and-response-cdr)
 
 ### Registry Scanning
 
@@ -93,7 +93,7 @@ If your organization uses cloud-native registries (e.g., Amazon Elastic Containe
           
     * If your organization’s setup is one where the concept of golden images does not exist and the application / DevOps teams own the entire lifecycle of the container images, then the ownership assignment and operations are similar to the previous point about managing issues at the application layer.
 
-### CIEM, DSPM, And Attack Surface Management
+### CIEM, DSPM, and Attack Surface Management
 
 Although these are all broad and disparate categories, I have grouped them under one section because the approach to operationalizing each of these capabilities is similar. Once you are able to operationalize one capability, the strategy and process for the rest of the areas will be comparable. Below are the key considerations for these capabilities:
 
@@ -124,14 +124,14 @@ Although these are all broad and disparate categories, I have grouped them under
     * Lambda functions are publicly exposed and have administrative privileges on cloud-admin-roles
     * Lambda functions are publicly exposed and contain critical vulnerabilities with known public exploit
 
-### Container And Kubernetes Security:
+### Container and Kubernetes Security:
 
 This section addresses capabilities focused on securing actively running containerized workloads and Kubernetes clusters, specifically Cloud Workload Protection Platform (CWPP), Kubernetes Security Posture Management (KSPM), and Kubernetes Admissions Controller. It does not encompass capabilities like helm chart/Kubernetes manifest file scanning, Dockerfile scanning, and container image scanning, as these are more “pre-deployment” and have already been discussed above. Additionally, the rationale for grouping these runtime capabilities is that they need to be enabled at the container, node, or cluster level. This decentralized approach can lead to increased operational complexity when scaling these capabilities across all platforms. Below are some key considerations for ensuring the runtime security of containers and Kubernetes clusters:
 
 * **Prioritize Critical Workloads:** Implementing these capabilities across the entire organization can become a high-touch effort, especially if multiple teams serve as platform admins for their respective applications or business units. Therefore, consider focusing the rollout of these capabilities on a prioritized set of workloads or clusters instead of attempting to cover all containers or clusters. The strategy for identifying prioritized workloads will vary by organization, but production workloads, business critical workloads, externally exposed workloads, and those interacting with sensitive data are good candidates for prioritization.  
 * **Maintain Deployment Templates:** For all the different flavors of orchestration platforms that are in-scope, develop and maintain instruction sets, guidance materials, and deployment scripts that can be readily used by the platform teams to deploy the KSPM connectors, admissions controllers, and runtime sensors / agents. Additionally, ensure these artifacts are regularly updated to align with vendor releases and upgrades.
 
-### Cloud Detection And Response (CDR)
+### Cloud Detection and Response (CDR)
 
 This is a relatively newer area for CNAPP that includes capabilities such as malware and threat detection, cloud events analysis, forensics collection, and automated responses. While I have primarily engaged in proofs-of-concept, utilizing the platform for initial investigations and information gathering, and deploying automated responses for simple use cases (such as quarantining resources, blocking public access, enabling encryption, upgrading EC2 instances to IMDSv2, etc.), I am excited to see how this field evolves. The integration of cloud events and CNAPP detection within a single platform seems very powerful. This will give us the ability to potentially start developing policies that are based on actual activities that are happening in the cloud environments coupled with the visibility and context that a CNAPP tool can provide. This could help offload some of the query development that otherwise happens within SIEM platforms, positioning CNAPP as the first line of detection and alerting. These alerts can then be forwarded to SIEM for further correlation and analysis. This approach has the added advantage of relying on the cloud security team’s expertise and understanding of the environment,  potentially resulting in more accurate alerts and fewer false positives. Below are example use-cases that could be possible by integrating cloud events with CNAPP:
 
@@ -140,11 +140,11 @@ This is a relatively newer area for CNAPP that includes capabilities such as mal
 * Identify all cloud IAM roles that performed read actions on a high (above 15\) number of services in the production OU in the last 24 hours  
 * Identify all EC2 instances that are publicly exposed and attempted to create an IAM user with access keys and admin privileges
 
-## Operational Workflows And Technology Integrations
+## Operational Workflows and Technology Integrations
 
 Operational workflows and technology integrations are important in ensuring that the insights generated by CNAPP tools are actioned efficiently and timely, thereby bridging the gap between identifying security issues and practical risk mitigation. This involves aspects such as:
 
-* Defining remediation requirements by environment and criticality (see details in section [IaC And Secret Scanning](#iac-and-secret-scanning))
+* Defining remediation requirements by environment and criticality (see details in section [IaC and Secret Scanning](#iac-and-secret-scanning))
 * Classifying issues and routing them to the appropriate remediation owners  
 * Setting up integrations with existing tools and workflows  
 * Providing remediation support  
