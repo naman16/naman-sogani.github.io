@@ -29,8 +29,8 @@ This involves scanning resource deployment files—such as Terraform, CloudForma
 
 * **Preventing Bypass of Scanning Workflows:** Due to the decentralized operating model for cloud, application and DevOps teams often persist admin privileges over their respective pipelines. This can pose challenges for enforcing scanning, as these teams can disable or bypass scanning steps. Therefore, when implementing scanning across the organization, it is crucial to design processes and solutions that minimize or restrict bypasses, ideally requiring security approval for any exceptions. Below are key considerations for this:
      * _Lockdown Important Touchpoints:_
-        * Isolate essential actions, such as deploying cloud resources or pushing images to registries, into a reusable pipeline or workflow that is secured and can only be modified by a limited group of individuals. This ensures control over the critical touchpoints in the DevOps processes.
-        * Establish access controls so that deployments or image pushes can only occur through this tightly managed reusable workflow.
+        * Isolate essential actions, such as deploying cloud resources or pushing images to registries, into reusable pipelines or workflows that are secured and can only be modified by a limited group of individuals. This ensures control over the critical touchpoints in the DevOps processes.
+        * Establish access controls so that deployments or image pushes can only occur through these tightly managed reusable workflows.
         * Integrate security scanning and other requirements directly into these reusable workflows to ensure that necessary security measures are in place, making it difficult for teams to bypass security scans.
      * _Leverage Native CI / CD Pipeline Capabilities:_
         * Modern CI/CD platforms (e.g., Harness) offer policy management capabilities that allow organizations to define and enforce standardized practices across how their pipelines are created, managed, and executed. Leverage this policy-as-code feature to enforce security scanning (and any other requirements) as “required steps” that need to be embedded for the successful creation and execution of pipelines. This provides reasonable assurance that pipelines are created with the necessary security guardrails.
@@ -52,9 +52,9 @@ This involves scanning resource deployment files—such as Terraform, CloudForma
           * Stg / Pre-Prod Environments —> No critical, high, and medium issues
           * Prod Environments —> No critical, high, and medium issues
   
-### Container Image Scanning
+### Container Image Scanning & SCA
 
-This includes scanning your container images during build to identify misconfigurations, vulnerabilities, and exposed secrets. The key considerations for image scanning are similar to the ones listed above for IaC & secret scanning. 
+This includes scanning your container images and software packages during the build stage to identify vulnerabilities, misconfigurations, exposed secrets, etc.. The key considerations for image scanning and SCA are similar to the ones listed above for IaC & secret scanning. 
 
 ## Capabilities Beyond CSPM
 
