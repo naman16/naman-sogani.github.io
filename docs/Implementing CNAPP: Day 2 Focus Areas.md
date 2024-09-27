@@ -10,7 +10,7 @@ In the first part of the Cloud-Native Application Protection Platform (CNAPP) bl
 
 In the context of CNAPP, "pre-deployment" security encompasses a range of capabilities integrated into CI/CD pipelines and the overall development lifecycle to identify and block insecure resources from reaching cloud environments. Often, I have noticed that this term is narrowly defined to apply only to production environments. However, in my experience, a broader interpretation of this term—viewing it as applicable to all stages before cloud deployment, i.e., “before reaching cloud environments”—is more effective. This allows you to shift left and roll out capabilities in a standardized manner rather than managing disparate processes across different environments. Additionally, you can then implement policy thresholds that enforce stricter security requirements in lower environments compared to higher environments to provide the necessary freedom needed for experimentation, development, and testing. Below are the primary pre-deployment capabilities:
 
-1. [Infrastructure-as-Code (IaC) & Secrets Scanning](#infrastructure-as-code-iac--secret-scanning)  
+1. [Infrastructure-as-Code (IaC) & Secret Scanning](#infrastructure-as-code-iac--secret-scanning)  
 2. [Container Image Scanning & Software Composition Analysis (SCA)](#container-image-scanning--sca)
 
 ### Infrastructure-as-Code (IaC) & Secret Scanning
