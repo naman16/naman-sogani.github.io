@@ -1,4 +1,4 @@
-# Implementing CNAPP: Key Considerations for Success
+# Implementing CNAPP: Tool Selection and Day 1 Focus Areas
 
 As someone who has done multiple Cloud-Native Application Protection Platform (CNAPP)  implementations, I've summarized my key considerations to help people who are in the evaluation / early stages of CNAPP adoption. Below is the high-level structure of how this document is organized:  
 
