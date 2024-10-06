@@ -15,7 +15,7 @@ In the context of CNAPP, "pre-deployment" security encompasses a range of capabi
 
 ### IaC and Secret Scanning
 
-This involves scanning resource deployment files—such as Terraform, CloudFormation, ARM templates, Ansible playbooks, Kubernetes manifests, Helm charts, and Dockerfiles—to identify misconfigurations and exposed secrets. Below are some key considerations for implementing IaC and secret scanning:
+This involves scanning resource deployment files—such as Terraform, CloudFormation, ARM templates, Ansible playbooks, Kubernetes manifests, Helm charts, and Dockerfiles—to identify misconfigurations and exposed secrets. Below are some key considerations for implementing IaC and secret scanning: 
 
 * **Scaling Across CI / CD Pipelines:** In a cloud world where decentralized operating models are predominant, teams have autonomy over their development processes which leads to the proliferation of diverse pipelines, creating a complex landscape for security integration. This is because:
      * Teams often utilize various CI/CD tools—such as Jenkins, GitHub Actions, Azure DevOps, etc.—each with distinct configurations and execution environments. Additionally, in large enterprises, the sheer volume of pipelines, often numbering in the hundreds or thousands, significantly increases the number of points that require security integration. This diversity complicates the enforcement of consistent scanning practices, as each pipeline may necessitate a customized approach to effectively implement IaC and secret scanning.
