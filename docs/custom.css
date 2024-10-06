@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.1rem 0; /* Significantly reduced padding for a very thin footer */
+  padding: 0.5rem 0; /* Increased padding for a larger footer */
 }
 
 .md-footer-copyright,
@@ -14,23 +14,22 @@
   flex: 1 1 auto;
   text-align: center;
   margin: 0 1rem;
-  font-size: 0.4rem; /* Very small font size */
+  font-size: 0.6rem; /* Increased font size */
   max-width: 75%;
-  line-height: 1.2; /* Reduced line height for compactness */
+  line-height: 1.4; /* Slightly increased line height for readability */
 }
 
 .md-footer-copyright {
-  font-size: 0.4rem; /* Very small font size */
+  font-size: 0.6rem; /* Increased font size */
 }
 
 .md-footer-social .md-social {
-  font-size: 1rem; /* Slightly reduced icon size to match thinner footer */
+  font-size: 1.4rem; /* Slightly increased icon size */
 }
 
-/* Additional styles to ensure a very thin footer */
+/* Additional styles to ensure proper spacing */
 .md-footer-meta {
   background-color: var(--md-footer-bg-color);
-  padding: 0;
 }
 
 .md-footer-meta__inner {
