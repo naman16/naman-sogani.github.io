@@ -2,36 +2,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0; /* Increased padding for a larger footer */
-}
-
-.md-footer-copyright,
-.md-footer-social {
-  flex: 0 0 auto;
+  padding: 0.5rem 0;
 }
 
 .md-footer-disclaimer {
   flex: 1 1 auto;
   text-align: center;
   margin: 0 1rem;
-  font-size: 0.6rem; /* Increased font size */
-  max-width: 75%;
-  line-height: 1.4; /* Slightly increased line height for readability */
+  font-size: 0.6rem;
+  max-width: 80%;
+  line-height: 1.4;
 }
 
-.md-footer-copyright {
-  font-size: 0.6rem; /* Increased font size */
+.md-footer-social {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%; /* Adjust this value to fine-tune positioning */
 }
 
 .md-footer-social .md-social {
-  font-size: 1.4rem; /* Slightly increased icon size */
-}
-
-/* Additional styles to ensure proper spacing */
-.md-footer-meta {
-  background-color: var(--md-footer-bg-color);
-}
-
-.md-footer-meta__inner {
-  margin: 0 auto;
+  font-size: 1.6rem; /* Increased icon size */
 }
