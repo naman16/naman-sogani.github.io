@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .md-footer-copyright,
@@ -14,12 +14,12 @@
   flex: 1 1 auto;
   text-align: center;
   margin: 0 1rem;
-  font-size: 0.64rem;
+  font-size: 0.6rem;
   max-width: 75%;
 }
 
 .md-footer-copyright {
-  font-size: 0.64rem;
+  font-size: 0.6rem;
 }
 
 .md-footer-social {
