@@ -1,6 +1,8 @@
 site_name: Cloud Security Blogs
 theme:
   name: material
+  custom_dir: overrides
+  features:
   features:
     - navigation.tabs
     - navigation.sections
@@ -25,6 +27,9 @@ theme:
         name: Switch to light mode    
       primary: teal
       accent: lime
+
+extra_css:
+  - custom.css
 
 plugins:
   - social
