@@ -70,7 +70,7 @@ PS: CNAPP is a broad area with many layers to unpack and there are several topic
 * Pre-deployment security capabilities such as container image scanning, secrets scanning, software supply chain  
 * Integrations with ticketing and messaging platforms (Jira, Slack), SIEM (Splunk, Sentinel), vulnerability warehouse (ServiceNow VR)  
 * Strategy for routing different styles of issues to different sources  
-* Operationalizing the various CNAPP capabilities
+* Operationalizing the various CNAPP capabilities 
 
 References:
 
