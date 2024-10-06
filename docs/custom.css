@@ -5,23 +5,23 @@
   padding: 0.5rem 0;
 }
 
+.md-footer-copyright,
+.md-footer-social {
+  flex: 0 0 auto;
+}
+
 .md-footer-disclaimer {
   flex: 1 1 auto;
   text-align: center;
   margin: 0 1rem;
   font-size: 0.6rem;
-  max-width: 80%;
-  line-height: 1.4;
+  max-width: 75%;
+}
+
+.md-footer-copyright {
+  font-size: 0.6rem;
 }
 
 .md-footer-social {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 10%; /* Adjust this value to fine-tune positioning */
-}
-
-.md-footer-social .md-social {
-  font-size: 1.6rem; /* Increased icon size */ 
+  margin: 0;
 }
