@@ -30,7 +30,7 @@ theme:
 
 extra_css:
   - custom.css
-
+ 
 plugins:
   - social
   - search
